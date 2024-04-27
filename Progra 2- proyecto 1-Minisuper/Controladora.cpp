@@ -170,141 +170,19 @@ Controladora::~Controladora()
 void Controladora::agregarAbarrote()
 {
     modelo->agregarProductoAlmacen(vista->capturarAbarrote());
-    //Producto* producto;
-    //ConcreteProducto* productoConcreto;
-    //Fecha* fechaVencimiento;
-    //Embutido* embutido;
-    //Abarrote* abarrote;
-    //Conserva* conserva;
-    //Perecedero* perecedero;
-    //ProdPerecedero* productoPerecedero;
-    ////Abarrote
-    //    //PRODUCTO BASE
-    //string* codigo = vista->capturarCodigoProducto();
-    //string* nombreConercial = vista->capturarNombreProducto();
-    //string* descripcion = vista->capturarDescripcion();
-    //string* categoria = vista->capturarCategoriaProducto();
-    //double* precioCosto = vista->capturarPrecioProducto();
-    //int* existencia = vista->capturarExistenciaProducto();
-    //int* limite = vista->capturarLimiteProducto();
-    //bool* nacional = vista->capturarNacional();
-    //double* peso = vista->capturarPesoProducto();
-    ////Abarrote
-    //string* nombreEmpresa = vista->capturarNombreEmpresaProducto();
-    ////FECHA
-    //int* dia = vista->capturarDia();
-    //int* mes = vista->capturarMes();
-    //int* anio = vista->capturarAnnio();
-
-    //fechaVencimiento = new Fecha(dia, mes, anio);
-
-    //perecedero = new Perecedero(fechaVencimiento);
-
-    //producto = new ConcreteProducto(codigo, nombreConercial, descripcion, categoria, precioCosto, existencia, limite);
-
-    //productoPerecedero = new ProdPerecedero(producto, nacional, peso, perecedero);
-
-    //Producto* productoN = new Abarrote(productoPerecedero, nacional, peso, nombreEmpresa);
-
-   
+  
 }
 
 void Controladora::agregarConserva()
 {
     modelo->agregarProductoAlmacen(vista->capturarConserva());
-    //Producto* producto;
-    //ConcreteProducto* productoConcreto;
-    //Fecha* fechaVencimiento;
-    //Embutido* embutido;
-    //Abarrote* abarrote;
-    //Conserva* conserva;
-    //Perecedero* perecedero;
-    //ProdPerecedero* productoPerecedero;
-
-    ////Conserva
-    //string* codigo = vista->capturarCodigoProducto();
-    //string* nombreConercial = vista->capturarNombreProducto();
-    //string* descripcion = vista->capturarDescripcion();
-    //string* categoria = vista->capturarCategoriaProducto();
-    //double* precioCosto = vista->capturarPrecioProducto();
-    //int* existencia = vista->capturarExistenciaProducto();
-    //int* limite = vista->capturarLimiteProducto();
-    //bool* embasado = vista->capturaEnvasado();
-
-    //producto = new Conserva(codigo, nombreConercial, descripcion, categoria, precioCosto, existencia, limite, embasado);
 
 }
 
 void Controladora::agregarEmbutido()
 {
     modelo->agregarProductoAlmacen(vista->capturarEmbutido());
-    //Producto* producto;
-    //ConcreteProducto* productoConcreto;
-    //Fecha* fechaVencimiento;
-    //Embutido* embutido;
-    //Abarrote* abarrote;
-    //Conserva* conserva;
-    //Perecedero* perecedero;
-    //ProdPerecedero* productoPerecedero;
-    ////Embutido
-    //   //PRODUCTO BASE
-    //string* codigo = vista->capturarCodigoProducto();
-    //string* nombreComercial = vista->capturarNombreProducto();
-    //string* descripcion = vista->capturarDescripcion();
-    //string* categoria = vista->capturarCategoriaProducto();
-    //double* precioCosto = vista->capturarPrecioProducto();
-    //int* existencia = vista->capturarExistenciaProducto();
-    //int* limite = vista->capturarLimiteProducto();
-    //bool* nacional = vista->capturarNacional();
-    //double* peso = vista->capturarPesoProducto();
-    ////Embutido 
-    //string* marca = vista->capturarMarca();
-    //bool* tripa = vista->capturarTripa();
-    ////FECHA
-    //int* dia = vista->capturarDia();
-    //int* mes = vista->capturarMes();
-    //int* anio = vista->capturarAnnio();
-
-    //fechaVencimiento = new Fecha(dia, mes, anio);
-
-    //perecedero = new Perecedero(fechaVencimiento);
-
-    //producto = new ConcreteProducto(codigo, nombreComercial, descripcion, categoria, precioCosto, existencia, limite);
-
-    //productoPerecedero = new ProdPerecedero(producto, nacional, peso, perecedero);
-
-    //Producto* productoN = new Embutido(productoPerecedero, marca, tripa);
-
-   
 }
-//
-//void Controladora::actualizarPorNombre()
-//{
-//    string* nombre = vista->capturarNombreProducto(); 
-//    double* nuevoPrecio = vista->capturarPrecioProducto();
-//    int* nuevaExistencia = vista->capturarExistenciaProducto();
-//    modelo->actualizarProductoPorNombre(nombre,nuevoPrecio,nuevaExistencia); 
-//}
-//
-//void Controladora::actualizarPorCodigo()
-//{
-//    string* codigo = vista->capturarCodigoProducto(); 
-//    double* nuevoPrecio = vista->capturarPrecioProducto();
-//    int* nuevaExistencia = vista->capturarExistenciaProducto(); 
-//    modelo->actualizarProductoPorCodigo(codigo, nuevoPrecio,nuevaExistencia);
-//}
-//
-//void Controladora::eliminarPorNombre()
-//{
-//    string* nombreP = vista->capturarNombreProducto();
-//    modelo->eliminarPorNombreCM(nombreP);
-//}
-//
-//void Controladora::eliminarPorCodigo()
-//{
-//    string* codigo = vista->capturarCodigoProducto();
-//    modelo->eliminarPorCodigo(codigo);
-//}
 
 void Controladora::crearFacturaCompra()
 {
@@ -331,112 +209,5 @@ void Controladora::crearFacturaCompra()
     cout << factura->toString() << endl;
 }
 
-//Cliente* Controladora::crearCliente()
-//{
-//    string* nombreCliente = vista->capturarNombre(); 
-//    string* cedula = vista->capturarId(); 
-//
-//    if (nombreCliente == nullptr || cedula == nullptr) { 
-//        throw std::runtime_error("Datos del cliente no válidos"); 
-//    }
-//
-//    Cliente* clientela = new Cliente(nombreCliente, cedula); 
-//    return clientela; 
-//}
 
-//void Controladora::actualizarPorNombre()
-//{
-//    string* nombreP = vista->capturarNombreProducto(); 
-//   POR EL AMOR DE DIOS NO DESCOMENTAR
-//}
-
-//void Controladora::agregarProducto()
-//{
-//    int tipo = vista->capturarTipo();
-//    Producto* producto;
-//    ConcreteProducto* productoConcreto;
-//    Fecha* fechaVencimiento;
-//    Embutido* embutido;
-//    Abarrote* abarrote;
-//    Conserva* conserva;
-//    Perecedero* perecedero;
-//    ProdPerecedero* productoPerecedero;
-//    if (tipo == 1) {
-//        //Conserva
-//        string* codigo = vista->capturarCodigoProducto();
-//        string* nombreConercial = vista->capturarNombreProducto();
-//        string* descripcion = vista->capturarDescripcion();
-//        string* categoria = vista->capturarCategoriaProducto();
-//        double* precioCosto = vista->capturarPrecioProducto();
-//        int* existencia = vista->capturarExistenciaProducto();
-//        int* limite = vista->capturarLimiteProducto();
-//        bool* embasado = vista->capturaEnvasado();
-//
-//        producto = new Conserva(codigo, nombreConercial, descripcion, categoria, precioCosto, existencia, limite, embasado);
-//        modelo->agregarProductoAlmacen(producto);
-//    }
-//    if (tipo == 2) {
-//        //Abarrote
-//        //PRODUCTO BASE
-//        string* codigo = vista->capturarCodigoProducto();
-//        string* nombreConercial = vista->capturarNombreProducto();
-//        string* descripcion = vista->capturarDescripcion();
-//        string* categoria = vista->capturarCategoriaProducto();
-//        double* precioCosto = vista->capturarPrecioProducto();
-//        int* existencia = vista->capturarExistenciaProducto();
-//        int* limite = vista->capturarLimiteProducto();
-//        bool* nacional = vista->capturarNacional();
-//        double* peso = vista->capturarPesoProducto();
-//        //Abarrote
-//        string* nombreEmpresa = vista->capturarNombreEmpresaProducto();
-//        //FECHA
-//        int* dia = vista->capturarDia();
-//        int* mes = vista->capturarMes();
-//        int* anio = vista->capturarAnnio();
-//
-//        fechaVencimiento = new Fecha(dia, mes, anio);
-//
-//        perecedero = new Perecedero(fechaVencimiento);
-//
-//        producto = new ConcreteProducto(codigo, nombreConercial, descripcion, categoria, precioCosto, existencia, limite);
-//
-//        productoPerecedero = new ProdPerecedero(producto, nacional, peso, perecedero);
-//      
-//        Producto* productoN = new Abarrote(productoPerecedero, nacional, peso, nombreEmpresa);
-//
-//        modelo->agregarProductoAlmacen(productoN);
-//    }
-//    if (tipo == 3) {
-//        //Embutido
-//        //PRODUCTO BASE
-//        string* codigo = vista->capturarCodigoProducto();
-//        string* nombreConercial = vista->capturarNombreProducto();
-//        string* descripcion = vista->capturarDescripcion();
-//        string* categoria = vista->capturarCategoriaProducto();
-//        double* precioCosto = vista->capturarPrecioProducto();
-//        int* existencia = vista->capturarExistenciaProducto();
-//        int* limite = vista->capturarLimiteProducto();
-//        bool* nacional = vista->capturarNacional();
-//        double* peso = vista->capturarPesoProducto();
-//        //Embutido 
-//        string* marca = vista->capturarMarca(); 
-//        bool* tripa = vista->capturarTripa(); 
-//        //FECHA
-//        int* dia = vista->capturarDia();
-//        int* mes = vista->capturarMes();
-//        int* anio = vista->capturarAnnio();
-//
-//        fechaVencimiento = new Fecha(dia, mes, anio);
-//
-//        perecedero = new Perecedero(fechaVencimiento);
-//
-//        producto = new ConcreteProducto(codigo, nombreConercial, descripcion, categoria, precioCosto, existencia, limite);
-//
-//        productoPerecedero = new ProdPerecedero(producto, nacional, peso, perecedero);
-//
-//        Producto* productoN = new Embutido(productoPerecedero,marca, tripa);
-//
-//        modelo->agregarProductoAlmacen(productoN);
-//    }
-//}
 
