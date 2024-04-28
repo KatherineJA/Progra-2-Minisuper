@@ -1,17 +1,6 @@
 #ifndef CONTROLADORA_H
 #define CONTROLADORA_H
-#include "InterfazUsuario.h"
-#include "Carrito.h"
-#include "Factura.h"
-#include "Venta.h"
-#include "Cliente.h"
-#include "Producto.h"
-#include "ConcreteProducto.h"
-#include "Abarrote.h"
-#include "Carne.h"
-#include "Conserva.h"
-#include "Embutido.h"
-#include "Almacen.h"
+#include "Includes.h"
 class Controladora {
 private:
 	InterfazUsuario* vista;
@@ -32,11 +21,9 @@ public:
 	void agregarConserva();
 	void agregarEmbutido(); 
 
-	//void actualizarPorNombre(); 
-	//void actualizarPorCodigo();
+	
 
-	//void eliminarPorNombre(); 
-	//void eliminarPorCodigo(); 
+	 
 
 	void crearFacturaCompra(); 
 	/*Cliente* crearCliente();*/

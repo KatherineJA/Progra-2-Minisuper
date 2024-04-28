@@ -22,9 +22,9 @@ public:
 	void NumeroFactura();
 
 	void MostrarVentaClienteCedula(string cedula);
-
+	void reporteMejoresClientes(); 
 	string toString();
-
+	
 };
 
 #endif FACTURA_H

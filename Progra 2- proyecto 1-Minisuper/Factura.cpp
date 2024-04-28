@@ -8,7 +8,6 @@ Factura::Factura()
 }
 
 
-
 Factura::Factura(Lista<Venta>* ventas)
 {
 	this->ventas = ventas;
@@ -19,7 +18,7 @@ Factura::~Factura()
 {
 	/*delete ventas;*/ //Es necesario eliminar ventas si nunca se uso el new?
 }
-//Logica para crear una factura nueva
+
 void Factura::agregarVenta(Venta* venta)
 {
 	ventas->insertarFinal(venta);
@@ -41,7 +40,7 @@ void Factura::NumeroFactura()
     }
 
     Nodo<Venta>* actual = ventas->getPrimero(); 
-    int contador = 1; // Contador para el número de factura 
+    int contador = 1; 
 
     // Iterar sobre la lista para mostrar el número de factura de cada venta
     while (actual != nullptr) { 
@@ -58,13 +57,73 @@ void Factura::MostrarVentaClienteCedula(string cedula)
     while (actual != nullptr) {
         Venta* venta = actual->getInfo();
         if (venta->getCarrito()->getCliente()->getId() == cedula) {
-            std::cout << venta->toString() << std::endl;
+            cout << venta->toString() <<endl;
+            
             return; // Muestra la venta y termina
+        }
+        else {
+           cout << "No se encontro ninguna venta para el cliente con cedula:  " << cedula << endl;
         }
         actual = actual->getSiguiente(); // Avanza al siguiente nodo
     }
-    std::cout << "No se encontro ninguna venta para el cliente con cedula: " << cedula << std::endl;
 }
+
+void Factura::reporteMejoresClientes()
+{
+    if (!ventas) {
+        cout << "No hay ventas registradas." << endl;
+        return;
+    }
+
+    // Estructura para almacenar cliente y monto total
+    struct ClienteMonto {
+        string cedula;
+        double montoTotal;
+    };
+
+    // Arreglo para almacenar los 5 mejores clientes
+    ClienteMonto mejoresClientes[5];
+
+    // Inicializar con valores vacíos
+    for (int i = 0; i < 5; i++) {
+        mejoresClientes[i].cedula = "";
+        mejoresClientes[i].montoTotal = 0.0;
+    }
+
+    // Recorrido de ventas
+    Nodo<Venta>* actualVenta = ventas->getPrimero();
+    while (actualVenta != nullptr) {
+        Venta* venta = actualVenta->getInfo();
+        string cedulaCliente = venta->getCarrito()->getCliente()->getId();
+        double montoTotal = venta->getCarrito()->sumaPrecios();
+
+        // Buscar en los 5 mejores
+        for (int i = 0; i < 5; i++) {
+            if (mejoresClientes[i].cedula == "" ||
+                montoTotal > mejoresClientes[i].montoTotal) {
+                // Desplazar elementos a la derecha para insertar
+                for (int j = 4; j > i; j--) {
+                    mejoresClientes[j] = mejoresClientes[j - 1];
+                }
+                mejoresClientes[i].cedula = cedulaCliente;
+                mejoresClientes[i].montoTotal = montoTotal;
+                break;
+            }
+        }
+
+        actualVenta = actualVenta->getSiguiente();
+    }
+
+    // Imprimir los 5 mejores clientes
+    cout << "========== 5 MEJORES CLIENTES ==========\n";
+    for (int i = 0; i < 5; i++) {
+        if (mejoresClientes[i].cedula != "") {
+            cout << i + 1 << ". Cedula: " << mejoresClientes[i].cedula;
+        }
+    }
+}
+
+
 
 string Factura::toString()
 {
@@ -87,3 +146,5 @@ string Factura::toString()
 
     return ss.str();  // Devuelve el resumen de la factura
 }
+
+

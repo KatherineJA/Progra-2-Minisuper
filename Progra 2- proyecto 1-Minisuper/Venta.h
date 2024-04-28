@@ -1,10 +1,7 @@
 #ifndef VENTA_H
 #define VENTA_H
 
-#include "Cliente.h"
-#include "Producto.h"
-#include "Fecha.h"
-#include "Carrito.h"
+#include "Includes.h"
 class Venta
 {
 private:

@@ -141,6 +141,7 @@
     <ClInclude Include="Excepciones.h" />
     <ClInclude Include="Factura.h" />
     <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Includes.h" />
     <ClInclude Include="InterfazUsuario.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="Nodo.h" />

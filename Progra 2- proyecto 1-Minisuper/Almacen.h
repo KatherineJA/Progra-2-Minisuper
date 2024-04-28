@@ -1,8 +1,6 @@
 #ifndef ALMACEN_H
 #define ALMACEN_H
-#include "Producto.h"
-#include "Lista.h"
-#include "ConcreteProducto.h"
+#include "Includes.h"
 //Reportes aqui
 class Almacen
 {

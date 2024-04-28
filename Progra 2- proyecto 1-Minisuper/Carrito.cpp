@@ -67,19 +67,19 @@ void Carrito::agregarProducto(Producto* producto)
 
 double Carrito::sumaPrecios()
 {
-	if (!lista) { // Si la lista es nula, el total es 0
+	if (!lista) { 
 		return 0.0;
 	}
 
 	double total = 0.0; // Variable para la suma total de precios
 	Nodo<Producto>* actual = lista->getPrimero(); // Obtener el primer nodo
 
-	// Recorre la lista para sumar los precios
-	while (actual != nullptr) { // Mientras haya nodos
-		Producto* producto = actual->getInfo(); // Obtener el producto
-		if (producto != nullptr) { // Verificar que el puntero es válido
-			double precio = producto->getPrecioCosto();  // Obtener el precio costo
-			total += precio; // Sumar el precio al total
+	
+	while (actual != nullptr) { 
+		Producto* producto = actual->getInfo(); 
+		if (producto != nullptr) { 
+			double precio = producto->getPrecioCosto();  
+			total += precio;
 		}
 		actual = actual->getSiguiente();
 	}
@@ -89,9 +89,9 @@ double Carrito::sumaPrecios()
 
 double Carrito::IVA()
 {
-	double subtotal = sumaPrecios(); // Calcular el subtotal
-	double iva = subtotal * 0.13;  // Calcular el IVA (13% del subtotal)
-	double total = subtotal + iva;  // Calcular el total con el IVA
+	double subtotal = sumaPrecios(); 
+	double iva = subtotal * 0.13; 
+	double total = subtotal + iva;  
 
 	return total; 
 }
@@ -109,14 +109,14 @@ string Carrito::toStringCarrito()
 	s << this->cliente->toString() << endl;
 	s << "\033[1;32m     &============ =  Productos  = ============& \033[0m" << endl;
 	if (lista && !lista->listaVacia()) {
-		int contador = 0; // Contador para contar los productos
+		int contador = 0; 
 
-		Nodo<Producto>* actual = lista->getPrimero(); // Obtener el primer nodo
-		while (actual != nullptr) { // Recorre la lista de productos
+		Nodo<Producto>* actual = lista->getPrimero();
+		while (actual != nullptr) { 
 			Producto* producto = actual->getInfo();
-			s << producto->toString() << endl; // Agrega la información del producto
-			contador++; // Incrementa el contador
-			actual = actual->getSiguiente(); // Pasa al siguiente nodo
+			s << producto->toString() << endl; 
+			contador++;
+			actual = actual->getSiguiente(); 
 		}
 
 		s << "Total de productos en el carrito: " << contador << endl;

@@ -39,7 +39,7 @@ void Controladora::menuVentas() {
             break;
         }
         case 2: {
-            salir = true; // Salir del men� de ventas y retornar al men� principal
+            salir = true; 
             break;
         }
 
@@ -92,7 +92,7 @@ void Controladora::eliminarProducto() {
         break;
     }
     case 3: {
-        // Retornar al men� de mantenimiento
+        // Retornar al menu de mantenimiento
         break;
     }
     }
@@ -102,11 +102,30 @@ void Controladora::actualizarProducto() {
     int opcionActualizacion = vista->menuNombreCodigo();
     switch (opcionActualizacion) {
     case 1: {
-      /*  actualizarPorCodigo(); */
+        string codigo; 
+        double nuevoPrecio; 
+        double nuevaExistencia; 
+        cout << "Ingrese el codigo del producto a actualizar "; 
+        cin >> codigo; 
+        cout << "Ingrese el nuevo Precio del producto a actualizar ";
+        cin >> nuevoPrecio;
+        cout << "Ingrese la nueva Existencia del producto a actualizar ";
+        cin >> nuevaExistencia;
+        modelo->actualizarProductoPorCodigo(codigo,nuevoPrecio,nuevaExistencia);
         break;
     }
     case 2: {
-       /* actualizarPorNombre();*/ 
+        string nombreCM;
+        double nuevoPrecio;
+        double nuevaExistencia;
+        cout << "Ingrese el nombre Comercial del producto a actualizar ";
+        cin >> nombreCM;
+        cout << "Ingrese el nuevo Precio del producto a actualizar ";
+        cin >> nuevoPrecio;
+        cout << "Ingrese la nueva Existencia del producto a actualizar ";
+        cin >> nuevaExistencia;
+        modelo->actualizarProductoPorNombre(nombreCM, nuevoPrecio, nuevaExistencia);
+        break;
     }
     case 3: {
         // Retornar al menu de mantenimiento
@@ -131,7 +150,7 @@ void Controladora::menuMantenimiento() {
         break;
     }
     case 4: {
-        // Retornar al men� principal
+        // Retornar al menu principal
         break;
     }
     }
@@ -141,7 +160,7 @@ void Controladora::menuReporte() {
     int opcion = vista->menuReporte();
     switch (opcion) {
     case 1: {
-        // L�gica para reportar todos los productos
+        // Logica para reportar todos los productos
        cout << modelo->toString();
        system("pause");
         break;
@@ -168,11 +187,12 @@ void Controladora::menuReporte() {
         break;
     }
     case 5: {
-        // L�gica para reportar las c�dulas de los 5 mejores clientes
+        factura->reporteMejoresClientes(); 
+        system("pause"); 
         break;
     }
     case 6: {
-        // Salir del programa (retornar al men� principal)
+        // Salir del programa (retornar al menu principal)
 
         break;
     }
