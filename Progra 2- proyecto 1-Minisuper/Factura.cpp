@@ -1,5 +1,4 @@
 #include "Factura.h"
-#include "Factura.h"
 
 
 Factura::Factura()
@@ -46,7 +45,7 @@ void Factura::NumeroFactura()
 
     // Iterar sobre la lista para mostrar el número de factura de cada venta
     while (actual != nullptr) { 
-        cout << "Número de factura: " << contador << endl ; // Muestra el número según la posición
+        cout << "Numero de factura: " << contador << endl ; // Muestra el número según la posición
         actual = actual->getSiguiente(); // Avanza al siguiente nodo 
         contador++; // Incrementar el contador 
     }  
@@ -64,7 +63,7 @@ void Factura::MostrarVentaClienteCedula(string cedula)
         }
         actual = actual->getSiguiente(); // Avanza al siguiente nodo
     }
-    std::cout << "No se encontró ninguna venta para el cliente con cédula: " << cedula << std::endl;
+    std::cout << "No se encontro ninguna venta para el cliente con cedula: " << cedula << std::endl;
 }
 
 string Factura::toString()
@@ -78,7 +77,7 @@ string Factura::toString()
 
         // Mientras recorres la lista, muestra el número de factura y detalles de la venta
         while (actual != nullptr) {
-            ss << "Número de factura: " << contador << "\n";  // Muestra el número de factura
+            ss << "Numero de factura: " << contador << "\n";  // Muestra el número de factura
             Venta* venta = actual->getInfo();
             ss << venta->toString() << std::endl;  // Usa el método toString() para mostrar detalles de la venta
             actual = actual->getSiguiente();  // Avanza al siguiente nodo
