@@ -16,7 +16,7 @@ class Controladora {
 private:
 	InterfazUsuario* vista;
 	Almacen* modelo= new Almacen();
-
+	Factura* factura = new Factura(new Lista<Venta>());
 	//Faltan cosas
 public:
 	void ejecutar();

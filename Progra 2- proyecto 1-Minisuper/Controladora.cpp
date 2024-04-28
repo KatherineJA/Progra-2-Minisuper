@@ -160,7 +160,11 @@ void Controladora::menuReporte() {
         break;
     }
     case 4: {
-        // L�gica para reportar facturas por c�dula de cliente
+        string id;
+        cout << "Ingrese la cedula del cliente: ";
+        cin >> id;
+        factura->MostrarVentaClienteCedula(id);
+        system("pause");
         break;
     }
     case 5: {
@@ -216,7 +220,6 @@ void Controladora::crearFacturaCompra()
     Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo(codigoProdu, cantiadproducts));
     Fecha* f2 = new Fecha(6, 8, 2024);
     Venta* venta = new Venta(carrito, f2);
-    Factura* factura = new Factura(new Lista<Venta>());
     factura->agregarVenta(venta);
     cout << factura->toString() << endl;
 }
