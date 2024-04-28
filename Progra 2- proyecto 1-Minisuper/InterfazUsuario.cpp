@@ -200,6 +200,7 @@ Producto* InterfazUsuario::capturarAbarrote()
     cin >> NombreCM;// Leer entrada para 'nombreCM '
 
     cout << "Ingrese la descripcion del producto: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
     cout << "Ingrese la categoria del producto: ";
@@ -258,6 +259,7 @@ Producto* InterfazUsuario::capturarConserva()
     cin >> NombreCM;// Leer entrada para 'nombreCM '
 
     cout << "Ingrese la descripción del producto: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
     cout << "Ingrese la categoría del producto: ";
@@ -303,6 +305,7 @@ Producto* InterfazUsuario::capturarEmbutido()
     cin >> NombreCM;// Leer entrada para 'nombreCM '
 
     cout << "Ingrese la descripcion del producto: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
     cout << "Ingrese la categoria del producto: ";

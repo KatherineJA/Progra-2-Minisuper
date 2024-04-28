@@ -189,16 +189,16 @@ void Controladora::crearFacturaCompra()
     string nombre  ;
     string cedula  ;
 
-    cout << "Nombre del cliente:";
+    cout << "Nombre del cliente: ";
     cin >> nombre;
     cout << "Cedula del cliente: ";
     cin >> cedula;
     Cliente* cliente = new Cliente(nombre, cedula);
     string codigoProdu ;
     int cantiadproducts ;
-    cout << "Codigo del producto:";
+    cout << "Codigo del producto: ";
     cin >>codigoProdu;
-    cout << "Cantidad del producto a llevar";
+    cout << "Cantidad del producto a llevar: ";
     cin >> cantiadproducts;
 
     Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo(codigoProdu, cantiadproducts));
