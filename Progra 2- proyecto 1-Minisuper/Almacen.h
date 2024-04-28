@@ -19,7 +19,7 @@ public:
 	void actualizarProductoPrecioPorCodigo(string codigo, double nuevoPrecioCosto);
 	void actualizarProductoPrecioPorNombre(string nombre, double nuevoPrecioCosto);
 	bool ListaProductoVacia();
-	void actualizarExistenciaPorCodigo(string codigo, int cantidad);
+	void actualizarExistenciaPorCodigo(string codigo, int existencia);
 	void actulizarExistenciaPorNombre(string codigo, int existencia);
 	void eliminarPorCodigo(string codigo);
 	void eliminarPorNombreCM(string nombreCM);

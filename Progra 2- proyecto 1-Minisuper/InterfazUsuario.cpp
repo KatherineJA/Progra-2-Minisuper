@@ -184,7 +184,7 @@ Producto* InterfazUsuario::capturarAbarrote()
     string codigo ;
     string NombreCM ;
     string Des ;
-    int catgoria;
+    int catgoria = 2;
     string empresa ; 
     double precio ;
     int cantidad ;
@@ -202,9 +202,6 @@ Producto* InterfazUsuario::capturarAbarrote()
     cout << "Ingrese la descripcion del producto: ";
     cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
     getline(cin, Des);  // Leer entrada para 'descripcion'
-
-    cout << "Ingrese la categoria del producto: ";
-    cin>> catgoria;  // Leer entrada para 'categoria'
 
     cout << "Ingrese el precio del producto: ";
     cin >> precio;  // Leer entrada para 'precio'
@@ -246,9 +243,9 @@ Producto* InterfazUsuario::capturarConserva()
     string codigo;
     string NombreCM ;
     string Des;
-    int catgoria ;
+    int catgoria = 1;
     double precio ;
-    int cantidad ;
+    int limite ;
     int existencia ;
     bool envasado; 
     cout << "Ingrese el codigo del producto: ";
@@ -262,14 +259,11 @@ Producto* InterfazUsuario::capturarConserva()
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
-    cout << "Ingrese la categoría del producto: ";
-    cin >> catgoria;   // Leer entrada para 'categoria'
-
     cout << "Ingrese el precio del producto: ";
     cin >> precio;  // Leer entrada para 'precio'
 
-    cout << "Ingrese la cantidad del producto: ";
-    cin >> cantidad;  // Leer entrada para 'cantidad'
+    cout << "Ingrese el limite ";
+    cin >> limite;  // Leer entrada para 'cantidad'
 
     cout << "Ingrese la existencia del producto: ";
     cin >> existencia;  // Leer entrada para 'existencia'
@@ -277,7 +271,7 @@ Producto* InterfazUsuario::capturarConserva()
     cout << "¿Está envasado? (0 para No, 1 para Si): ";
     cin >> envasado;
 
-    Producto* conserva = new Conserva(codigo,NombreCM,Des,catgoria,precio,existencia,cantidad,envasado);
+    Producto* conserva = new Conserva(codigo,NombreCM,Des,catgoria,precio,existencia,limite,envasado);
     return conserva; 
 
 }
@@ -287,7 +281,7 @@ Producto* InterfazUsuario::capturarEmbutido()
     string codigo;
     string NombreCM;
     string Des;
-    int catgoria;
+    int catgoria = 3;
     string marca;
     double precio;
     int cantidad;
@@ -308,8 +302,6 @@ Producto* InterfazUsuario::capturarEmbutido()
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
-    cout << "Ingrese la categoria del producto: ";
-    cin >> catgoria;  // Leer entrada para 'categoria'
 
     cout << "Ingrese el precio del producto: ";
     cin >> precio;  // Leer entrada para 'precio'
