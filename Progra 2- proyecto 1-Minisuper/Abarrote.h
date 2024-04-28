@@ -15,7 +15,7 @@ public:
     string toString() override;
 
 
-    // Heredado v�a ProdPerecedero
+    // Heredado via ProdPerecedero
     void setCategoria(int) override;
 
     bool getNacional() override;

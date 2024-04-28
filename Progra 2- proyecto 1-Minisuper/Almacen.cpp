@@ -122,7 +122,7 @@ void Almacen::eliminarPorCodigo(string codigo)
     }
 
     // Si llegamos aquí, el producto no se encontró en la lista
-    cout << "Producto con código " << codigo << " no encontrado." << endl;
+    cout << "Producto con codigo " << codigo << " no encontrado." << endl;
 }
 
 void Almacen::eliminarPorNombreCM(string nombreCM)
@@ -189,7 +189,7 @@ Producto* Almacen::buscarProductoCodigo(string codigo)
         actual = actual->getSiguiente(); // Avanzar al siguiente nodo
     }
 
-    std::cout << "Producto con código " << codigo << " no encontrado." << std::endl; 
+    std::cout << "Producto con codigo " << codigo << " no encontrado." << std::endl; 
     return nullptr; // Producto no encontrado 
 
 }
@@ -256,23 +256,22 @@ Lista<Producto>* Almacen::seleccionarProductosPorCodigo(string codigo, int canti
     // Establecer la existencia del producto a la cantidad solicitada
     producto->setExistencia(cantidad);
 
-    // Agregar el producto original a la lista de comprados
     listaComprados->insertarFinal(producto);
 
     // Reducir la existencia en el almacén
     int nuevaExistencia = existencia - cantidad;
     producto->setExistencia(nuevaExistencia);
 
-    return listaComprados;  // Devolver la lista de productos seleccionados
+    return listaComprados;  
 }
 
 string Almacen::toString()
 {
     std::stringstream s;
 
-    if (listaProductos == nullptr) { // Verificar si la lista está inicializada
+    if (listaProductos == nullptr) { 
         s << "El almacén no esta inicializado." << std::endl;
-        return s.str(); // Devolver mensaje de error
+        return s.str(); 
     }
 
     if (ListaProductoVacia()) { // Verificar si la lista está vacía

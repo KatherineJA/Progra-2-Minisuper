@@ -107,7 +107,7 @@ string Carrito::toStringCarrito()
 {
 	stringstream s;
 	s << this->cliente->toString() << endl;
-	s << "     &============ = &Productos& = ============& " << endl;
+	s << "\033[1;32m     &============ =  Productos  = ============& \033[0m" << endl;
 	if (lista && !lista->listaVacia()) {
 		int contador = 0; // Contador para contar los productos
 
@@ -124,43 +124,12 @@ string Carrito::toStringCarrito()
 		s << "IVA: 13% " << " Total a pagar: " << IVA() << endl;
 	}
 	else {
-		s << "El carrito está vacío." << endl;
+		s << "El carrito esta vacio." << endl;
 	}
 
 	s << "========================================================" << endl;
 	return s.str();
 }
-
-//bool Carrito::agregarProductoPorCodigo(Almacen* almacen, string* codigo, int* cantidad) {
-//	// Buscar el producto en el almacén por código
-//	Producto* producto = dynamic_cast<Producto*>(almacen->buscarProductoCodigo(codigo));
-//
-//	if (!producto) {  // Producto no encontrado
-//		std::cout << "Producto con código " << codigo << " no encontrado en el almacén." << std::endl;
-//		return false;
-//	}
-//
-//	// Verificar si hay suficiente existencia para la cantidad solicitada
-//	int existencia = *(producto->getExistencia());
-//	if (*cantidad > existencia) {
-//		std::cout << "Cantidad solicitada excede la existencia disponible." << std::endl;
-//		return false;  // No hay suficiente existencia
-//	}
-//
-//	// Crear una copia del producto para el carrito
-//	Producto* productoCarrito = new ConcreteProducto(producto);  // Usar constructor copia
-//	productoCarrito->setExistencia(new int(*cantidad));  // Establece la cantidad deseada para el carrito
-//
-//	// Agregar al carrito
-//	agregarProducto(productoCarrito);
-//
-//	// Actualizar la existencia en el almacén
-//	producto->setExistencia(new int(existencia - *cantidad));  // Reducir la existencia en el almacén
-//
-//	std::cout << "Producto agregado al carrito." << std::endl;
-//	return true;
-//}
-
 
 
 
