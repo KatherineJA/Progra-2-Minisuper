@@ -32,6 +32,7 @@ public:
 	string toString();
 	
 	Lista<Producto>* reporteCategorias(int categoria);
+	Lista<Producto>* reporteProductosPorDebajoDelMinimo(); 
 	
 };
 

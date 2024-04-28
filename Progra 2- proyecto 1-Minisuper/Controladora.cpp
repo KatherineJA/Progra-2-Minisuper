@@ -147,11 +147,16 @@ void Controladora::menuReporte() {
         break;
     }
     case 2: {
-        // L�gica para reportar productos por categor�a
+        int categoria;
+        cout << "Ingrese la categoria que desea ver el reporte: " << endl; 
+        cin >> categoria; 
+        modelo->reporteCategorias(categoria); 
+        system("pause"); 
         break;
     }
     case 3: {
-        // L�gica para reportar productos por debajo del m�nimo de existencia
+        modelo->reporteProductosPorDebajoDelMinimo(); 
+        system("pause");
         break;
     }
     case 4: {
