@@ -111,28 +111,7 @@ int InterfazUsuario::menuIngresoProducto()
     }
 }
 
-//int InterfazUsuario::menuEliminacionProducto()
-//{
-//    cout << "\033[1;36m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-//    cout << "             Eliminacion de Producto\n";
-//    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n\n";
-//    cout << "\033[1m1. Eliminacion por codigo\n";
-//    cout << "2.Eliminacion por nombre comercial \n";
-//    cout << "3. Retornar al Men� de Mantenimiento\n\n\033[0m";
-//    return opcion(); 
-//}
-//
-//int InterfazUsuario::menuActualizacionProducto()
-//{
-//    cout << "\033[1;36m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-//    cout << "             Actualiacion de Producto\n";
-//    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n\n";
-//    cout << "\033[1m1.  Actualiacion por codigo\n";
-//    cout << "2. Actualiacion por nombre comercial \n";
-//    cout << "3. Retornar al Men� de Mantenimiento\n\n\033[0m";
-//    return opcion();
-//
-//}
+
 
 int InterfazUsuario::menuNombreCodigo()
 {
@@ -159,7 +138,7 @@ int InterfazUsuario::menuFacturas()
     cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n\n";
     cout << "\033[1m1. Eliminar factura\n";
     cout << "2.Actualizar factura \n";
-    cout << "3. Retornar al Men� de Mantenimiento\n\n\033[0m";
+    cout << "3. Retornar al Menu de Mantenimiento\n\n\033[0m";
     try {
         return  opcion();
     }
@@ -213,17 +192,17 @@ Producto* InterfazUsuario::capturarAbarrote()
     bool nacionalidad ; 
     double peso ; 
 
-    cout << "Ingrese el código del producto: ";
+    cout << "Ingrese el codigo del producto: ";
     cin >> codigo;  // Leer entrada para 'codigo'
 
     cout << "Ingrese el nombre del producto: ";
     cin.ignore();   // Limpiar el buffer para getline
     cin >> NombreCM;// Leer entrada para 'nombreCM '
 
-    cout << "Ingrese la descripción del producto: ";
+    cout << "Ingrese la descripcion del producto: ";
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
-    cout << "Ingrese la categoría del producto: ";
+    cout << "Ingrese la categoria del producto: ";
     cin>> catgoria;  // Leer entrada para 'categoria'
 
     cout << "Ingrese el precio del producto: ";
@@ -239,11 +218,11 @@ Producto* InterfazUsuario::capturarAbarrote()
     int dia ;
     int anio ;
     int mes ;
-    cout << "Ingrese el día de caducidad del perecedero: ";
+    cout << "Ingrese el dia de caducidad del perecedero: ";
     cin >> dia;
     cout << "Ingrese el mes de caducidad del perecedero: ";
     cin >> mes;
-    cout << "Ingrese el año de caducidad del perecedero: ";
+    cout << "Ingrese el annio de caducidad del perecedero: ";
     cin >> anio;
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
@@ -271,7 +250,7 @@ Producto* InterfazUsuario::capturarConserva()
     int cantidad ;
     int existencia ;
     bool envasado; 
-    cout << "Ingrese el código del producto: ";
+    cout << "Ingrese el codigo del producto: ";
     cin >> codigo;  // Leer entrada para 'codigo'
 
     cout << "Ingrese el nombre del producto: ";
@@ -316,17 +295,17 @@ Producto* InterfazUsuario::capturarEmbutido()
     double peso;
     string animal; 
     string parteAnimal; 
-    cout << "Ingrese el código del producto: ";
+    cout << "Ingrese el codigo del producto: ";
     cin >> codigo;  // Leer entrada para 'codigo'
 
     cout << "Ingrese el nombre del producto: ";
     cin.ignore();   // Limpiar el buffer para getline
     cin >> NombreCM;// Leer entrada para 'nombreCM '
 
-    cout << "Ingrese la descripción del producto: ";
+    cout << "Ingrese la descripcion del producto: ";
     getline(cin, Des);  // Leer entrada para 'descripcion'
 
-    cout << "Ingrese la categoría del producto: ";
+    cout << "Ingrese la categoria del producto: ";
     cin >> catgoria;  // Leer entrada para 'categoria'
 
     cout << "Ingrese el precio del producto: ";
@@ -342,11 +321,11 @@ Producto* InterfazUsuario::capturarEmbutido()
     int dia;
     int anio;
     int mes;
-    cout << "Ingrese el día de caducidad del perecedero: ";
+    cout << "Ingrese el dia de caducidad del perecedero: ";
     cin >> dia;
     cout << "Ingrese el mes de caducidad del perecedero: ";
     cin >> mes;
-    cout << "Ingrese el año de caducidad del perecedero: ";
+    cout << "Ingrese el annio de caducidad del perecedero: ";
     cin >> anio;
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
