@@ -36,7 +36,7 @@ void Almacen::agregarProductoAlmacen(Producto* producto)
    
 }
 
-void Almacen::actualizarProductoPorCodigo(string codigo, double nuevoPrecioCosto, int nuevaExistencia)
+void Almacen::actualizarProductoPrecioPorCodigo(string codigo, double nuevoPrecioCosto)
 {
     if (ListaProductoVacia()) {
         cout << "El almacen esta vacio. No se puede actualizar ningun producto." << endl;
@@ -50,8 +50,7 @@ void Almacen::actualizarProductoPorCodigo(string codigo, double nuevoPrecioCosto
         
         if (producto->getCodigo() == codigo) {
             producto->setPrecio(nuevoPrecioCosto);
-            producto->setExistencia(nuevaExistencia);
-            cout << "Producto actualizado correctamente." << endl;
+            cout << "Precio del producto actualizado correctamente." << endl;
             
         }
         else {
@@ -62,7 +61,7 @@ void Almacen::actualizarProductoPorCodigo(string codigo, double nuevoPrecioCosto
 
 }
 
-void Almacen::actualizarProductoPorNombre(string nombre, double nuevoPrecioCosto, int nuevaExistencia) {
+void Almacen::actualizarProductoPrecioPorNombre(string nombre, double nuevoPrecioCosto) {
     
     if (ListaProductoVacia()) {
         cout << "El almacen esta vacio. No se puede actualizar ningun producto." << endl;
@@ -75,8 +74,7 @@ void Almacen::actualizarProductoPorNombre(string nombre, double nuevoPrecioCosto
         
         if (producto->getNombreComercial() == nombre) {
             producto->setPrecio(nuevoPrecioCosto);
-            producto->setExistencia(nuevaExistencia);
-            cout << "Producto actualizado correctamente." <<endl;
+            cout << "Precio del producto actualizado correctamente." <<endl;
             return;
         }
         else {
@@ -91,6 +89,46 @@ void Almacen::actualizarProductoPorNombre(string nombre, double nuevoPrecioCosto
 bool Almacen::ListaProductoVacia()
 {
 	return listaProductos ? listaProductos->listaVacia() : true;
+}
+
+void Almacen::actualizarExistenciaPorCodigo(string codigo, int cantidad)
+{
+    Producto* producto = buscarProductoCodigo(codigo); // Buscar el producto por código
+
+    if (producto != nullptr) { // Si se encuentra el producto
+        // Sumar la cantidad a la existencia actual
+        int nuevaExistencia = producto->getExistencia() + cantidad; 
+        producto->setExistencia(nuevaExistencia);
+        cout << "Existencia actualizada. Nueva cantidad para el producto con código "
+            << codigo << ": " << nuevaExistencia << endl;
+    }
+    else {
+        cout << "No se encontró ningún producto con el código " << codigo << "." << endl; 
+    } 
+}
+
+void Almacen::actulizarExistenciaPorNombre(string nombre, int existencia)
+{
+    if (ListaProductoVacia()) { 
+        cout << "El almacen esta vacio. No se puede actualizar ningun producto." << endl;
+        return;
+    }
+
+    Nodo<Producto>* actual = listaProductos->getPrimero(); 
+    while (actual != nullptr) { 
+        Producto* producto = actual->getInfo(); 
+
+        if (producto->getNombreComercial() == nombre) {
+            producto->setExistencia(existencia);
+            cout << "Existencia del producto actualizado correctamente." << endl;
+            return;
+        }
+        else {
+            cout << "No se encontró ningún producto con el nombre especificado." << endl;
+        }
+        actual = actual->getSiguiente();
+    }
+
 }
 
 void Almacen::eliminarPorCodigo(string codigo)

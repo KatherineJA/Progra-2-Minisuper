@@ -109,9 +109,9 @@ void Controladora::actualizarProducto() {
         cin >> codigo; 
         cout << "Ingrese el nuevo Precio del producto a actualizar ";
         cin >> nuevoPrecio;
-        cout << "Ingrese la nueva Existencia del producto a actualizar ";
-        cin >> nuevaExistencia;
-        modelo->actualizarProductoPorCodigo(codigo,nuevoPrecio,nuevaExistencia);
+        /*cout << "Ingrese la nueva Existencia del producto a actualizar ";
+        cin >> nuevaExistencia;*/
+        modelo->actualizarProductoPrecioPorCodigo(codigo,nuevoPrecio);
         break;
     }
     case 2: {
@@ -122,9 +122,9 @@ void Controladora::actualizarProducto() {
         cin >> nombreCM;
         cout << "Ingrese el nuevo Precio del producto a actualizar ";
         cin >> nuevoPrecio;
-        cout << "Ingrese la nueva Existencia del producto a actualizar ";
-        cin >> nuevaExistencia;
-        modelo->actualizarProductoPorNombre(nombreCM, nuevoPrecio, nuevaExistencia);
+       /* cout << "Ingrese la nueva Existencia del producto a actualizar ";
+        cin >> nuevaExistencia;*/
+        modelo->actualizarProductoPrecioPorNombre(nombreCM, nuevoPrecio);
         break;
     }
     case 3: {

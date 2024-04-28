@@ -1,6 +1,9 @@
 #ifndef CONTROLADORA_H
 #define CONTROLADORA_H
-#include "Includes.h"
+#include "InterfazUsuario.h"
+#include "Almacen.h"
+#include "Factura.h"
+
 class Controladora {
 private:
 	InterfazUsuario* vista;

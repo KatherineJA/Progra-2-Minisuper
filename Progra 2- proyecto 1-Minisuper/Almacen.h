@@ -1,6 +1,7 @@
 #ifndef ALMACEN_H
 #define ALMACEN_H
-#include "Includes.h"
+#include "Lista.h"
+#include "Producto.h"
 //Reportes aqui
 class Almacen
 {
@@ -15,10 +16,11 @@ public:
 	Lista<Producto>* getListaProductos();
 
 	void agregarProductoAlmacen(Producto* );
-	void actualizarProductoPorCodigo(string codigo, double nuevoPrecioCosto, int nuevaExistencia);
-	void actualizarProductoPorNombre(string nombre, double nuevoPrecioCosto, int nuevaExistencia);
+	void actualizarProductoPrecioPorCodigo(string codigo, double nuevoPrecioCosto);
+	void actualizarProductoPrecioPorNombre(string nombre, double nuevoPrecioCosto);
 	bool ListaProductoVacia();
-
+	void actualizarExistenciaPorCodigo(string codigo, int cantidad);
+	void actulizarExistenciaPorNombre(string codigo, int existencia);
 	void eliminarPorCodigo(string codigo);
 	void eliminarPorNombreCM(string nombreCM);
 
@@ -31,6 +33,7 @@ public:
 	
 	Lista<Producto>* reporteCategorias(int categoria);
 	Lista<Producto>* reporteProductosPorDebajoDelMinimo(); 
+	
 	
 };
 

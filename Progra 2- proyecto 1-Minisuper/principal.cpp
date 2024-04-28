@@ -1,4 +1,4 @@
-#include "Includes.h"
+#include "Controladora.h"
 
 int main() {
 	Controladora c1; 
