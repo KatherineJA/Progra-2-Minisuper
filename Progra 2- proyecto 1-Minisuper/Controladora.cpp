@@ -256,7 +256,7 @@ void Controladora::crearFacturaCompra()
     Fecha* f2 = new Fecha(6, 8, 2024);
     Venta* venta = new Venta(carrito, f2);
     factura->agregarVenta(venta);
-    cout << factura->toString() << endl;
+    cout << factura->toStringUltimo() << endl;
 }
 
 

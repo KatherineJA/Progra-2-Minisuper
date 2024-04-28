@@ -147,4 +147,27 @@ string Factura::toString()
     return ss.str();  // Devuelve el resumen de la factura
 }
 
+string Factura::toStringUltimo()
+{
+    std::stringstream ss;
+    ss << "        ========== RESUMEN FACTURA ==========\n";
+
+    if (ventas != nullptr) {
+        Nodo<Venta>* actual = ventas->getPrimero();
+
+        // Recorre la lista para llegar al último nodo
+        while (actual != nullptr && actual->getSiguiente() != nullptr) {
+            actual = actual->getSiguiente();  // Avanza hasta el último nodo
+        }
+
+        // En este punto, 'actual' es el último nodo de la lista
+        if (actual != nullptr) {
+            Venta* venta = actual->getInfo();
+            ss << venta->toString() << std::endl;  // Usa el método toString() para mostrar detalles de la venta
+        }
+    }
+
+    return ss.str();
+}
+
 

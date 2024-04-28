@@ -24,6 +24,7 @@ public:
 	void MostrarVentaClienteCedula(string cedula);
 	void reporteMejoresClientes(); 
 	string toString();
+	string toStringUltimo();
 	
 };
 

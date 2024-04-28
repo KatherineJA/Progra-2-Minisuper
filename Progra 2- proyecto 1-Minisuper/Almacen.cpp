@@ -294,7 +294,7 @@ Producto* Almacen::buscarProductoCategoria(int categoria)
 Lista<Producto>* Almacen::seleccionarProductosPorCodigo(string codigo, int cantidad)
 {
     if (ListaProductoVacia()) {
-        std::cout << "El almacén esta vacio. No se puede seleccionar productos." << std::endl;
+        std::cout << "El almacén está vacío. No se puede seleccionar productos." << std::endl;
         return nullptr;
     }
 
@@ -303,30 +303,46 @@ Lista<Producto>* Almacen::seleccionarProductosPorCodigo(string codigo, int canti
 
     // Verificar que el producto exista
     if (producto == nullptr) {
-        std::cout << "Producto con codigo " << codigo << " no encontrado en el almacen." << std::endl;
+        std::cout << "Producto con código " << codigo << " no encontrado en el almacén." << std::endl;
         return nullptr;
     }
 
-    // Verificar la existencia suficiente
-    int existencia = (producto->getExistencia());
+    // Verificar la existencia y el límite
+    int limite = producto->getLimite();
+    int existencia = producto->getExistencia();
+    int disponible = (existencia - limite);
+    // Si la existencia es menor o igual al límite, no se puede seleccionar
+    if (existencia <= limite) {
+        std::cout << "Producto Agotado, vuelva despues." << std::endl;
+        return nullptr;
+    }
+
+    // Si la cantidad solicitada excede la existencia disponible
     if (cantidad > existencia) {
-        std::cout << "Cantidad solicitada excede la existencia disponible." << std::endl;
+        std::cout << "La cantidad solicitada (" << cantidad
+            << ") excede la existencia disponible (" << existencia << "). Cantidad de productos disponibles:" << disponible
+            << std::endl;
+        return nullptr;
+    }
+
+    // Si la cantidad solicitada es mayor que la diferencia entre la existencia y el límite
+    if ((existencia - cantidad) < limite) {
+        std::cout << "La cantidad solicitada (" << cantidad
+            << ") hará que la existencia caiga por debajo del límite permitido. "
+            << "Cantidad de productos disponibles:" << disponible << std::endl;
         return nullptr;
     }
 
     // Crear la lista para los productos comprados
     Lista<Producto>* listaComprados = new Lista<Producto>();
 
-    // Establecer la existencia del producto a la cantidad solicitada
-    producto->setExistencia(cantidad);
+    // Reducir la existencia del producto en el almacén por la cantidad solicitada
+    producto->setExistencia(existencia - cantidad);
 
+    // Agregar el producto a la lista de productos comprados
     listaComprados->insertarFinal(producto);
 
-    // Reducir la existencia en el almacén
-    int nuevaExistencia = existencia - cantidad;
-    producto->setExistencia(nuevaExistencia);
-
-    return listaComprados;  
+    return listaComprados;
 }
 
 string Almacen::toString()
