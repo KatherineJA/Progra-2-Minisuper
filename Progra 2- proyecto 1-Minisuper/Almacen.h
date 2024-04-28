@@ -23,7 +23,7 @@ public:
 	void actulizarExistenciaPorNombre(string codigo, int existencia);
 	void eliminarPorCodigo(string codigo);
 	void eliminarPorNombreCM(string nombreCM);
-
+	bool verificarCod(string cod);
 	Producto* buscarProductoCodigo(string codigo);
 	Producto* buscarProductoCategoria(int categoria);
 

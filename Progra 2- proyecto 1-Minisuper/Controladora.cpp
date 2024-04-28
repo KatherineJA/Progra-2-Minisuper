@@ -138,7 +138,19 @@ void Controladora::menuMantenimiento() {
     int opcion = vista->menuMantenimiento();
     switch (opcion) {
     case 1: {
-        ingresarProducto();
+        
+        string codi;
+        cout << "Antes de continuar Ingrese el codigo del producto que desea agregar: ";
+        cin >> codi;
+        if (modelo->verificarCod(codi) == false) {
+            ingresarProducto();
+        }
+        else {
+            cout << "Ya existe un producto con ese código, Si desea actualizarlo o saber más información, diríjase al apartado respectivo (Actualizar)." << endl;
+            system("pause");
+            return;
+        }
+       
         break;
     }
     case 2: {
@@ -205,6 +217,7 @@ Controladora::~Controladora()
 
 void Controladora::agregarAbarrote()
 {
+
     modelo->agregarProductoAlmacen(vista->capturarAbarrote());
   
 }
@@ -219,6 +232,8 @@ void Controladora::agregarEmbutido()
 {
     modelo->agregarProductoAlmacen(vista->capturarEmbutido());
 }
+
+
 
 void Controladora::crearFacturaCompra()
 {

@@ -199,6 +199,30 @@ void Almacen::eliminarPorNombreCM(string nombreCM)
     cout << "Producto de nombre ' " << nombreCM << " ' no encontrado." << endl;
 }
 
+bool Almacen::verificarCod(string cod)
+{
+    // Verificar que el puntero de listaProductos no es nullptr
+    if (listaProductos == nullptr) {
+        std::cerr << "Error: La lista de productos no está inicializada." << std::endl;
+        return false;
+    }
+
+    Nodo<Producto>* actual = listaProductos->getPrimero(); // Comenzar desde el primer nodo
+
+    while (actual != nullptr) {
+        Producto* producto = actual->getInfo(); // Obtener el producto del nodo
+
+        if (producto != nullptr && producto->getCodigo() == cod) { // Si se encuentra el producto
+            return true; // Producto con el código dado encontrado
+        }
+
+        actual = actual->getSiguiente(); // Avanzar al siguiente nodo
+    }
+
+    // Si se recorrió toda la lista y no se encontró el producto
+    return false; // Producto no encontrado
+}
+
 Producto* Almacen::buscarProductoCodigo(string codigo)
 {  // Verificar que el puntero de listaProductos no es nullptr
     if (listaProductos == nullptr) { 
