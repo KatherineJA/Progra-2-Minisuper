@@ -78,11 +78,17 @@ void Controladora::eliminarProducto() {
     int opcionEliminacion = vista->menuNombreCodigo();
     switch (opcionEliminacion) {
     case 1: {
-    /*    eliminarPorCodigo(); */
+        string codigo;
+        cout << "Ingrese el codigo del producto a eliminar:";
+        cin >> codigo;
+        modelo->eliminarPorCodigo(codigo);
         break;
     }
     case 2: {
-    /*    eliminarPorNombre();*/
+        string nombrePC;
+        cout << "Ingrese el nombre del producto a eliminar:";
+        getline(cin, nombrePC);
+        modelo->eliminarPorNombreCM(nombrePC);
         break;
     }
     case 3: {
@@ -136,7 +142,8 @@ void Controladora::menuReporte() {
     switch (opcion) {
     case 1: {
         // L�gica para reportar todos los productos
-        cout << modelo->toString();
+       cout << modelo->toString();
+       system("pause");
         break;
     }
     case 2: {

@@ -121,8 +121,8 @@ string ConcreteProducto::toString()
     string result = "Codigo: " + getCodigo() + "\n";
     result += "Nombre Comercial: " + getNombreComercial() + "\n";
     result += "Descripcion: " + getDescripcion() + "\n";
-    result += "Categoria: " + getCategoria();
-    result += "Precio Costo: " + to_string(getPrecioCosto()) + "\n";
+    result += "Categoria: " + to_string(getCategoria()); +"\n";
+    result += "\nPrecio Costo: " + to_string(getPrecioCosto()) + "\n";
     result += "Existencia: " + to_string(getExistencia()) + "\n";
     result += "Limite: " + to_string(getLimite()) + "\n";
     return result;

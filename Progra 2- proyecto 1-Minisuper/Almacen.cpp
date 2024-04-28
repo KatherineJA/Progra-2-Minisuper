@@ -250,13 +250,16 @@ string Almacen::toString()
     Nodo<Producto>* actual = listaProductos->getPrimero(); // Obtener el primer nodo
 
     // Recorrer todos los productos en la lista
+   
     s << "Lista de productos en el almacén:" << std::endl;
 
     while (actual != nullptr) { // Mientras haya nodos
         Producto* producto = actual->getInfo(); // Obtener la información del producto
 
         if (producto != nullptr) { // Verificar que el producto no sea nulo
+            s << "----------------------------------------------------------" << endl;
             s << producto->toString() << std::endl; // Agregar la representación del producto
+            s << "----------------------------------------------------------" << endl; 
         }
         else {
             s << "Producto nulo encontrado en la lista." << std::endl; // Manejar caso de producto nulo
