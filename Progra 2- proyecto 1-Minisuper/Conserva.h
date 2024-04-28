@@ -10,7 +10,7 @@ public:
 	Conserva(string codigo, string nombreComercial, string descripcion, int categoria, double precioCosto, int existencia, int limite, bool envasado);
 
 
-	// Heredado vía Producto
+	// Heredado vï¿½a Producto
 	string getCodigo() override;
 
 	string getNombreComercial() override;
@@ -42,6 +42,8 @@ public:
 	double calculaPorcGanancia() override;
 
 	string toString() override;
+
+	bool esEnvasado();
 
 	// Heredado via Producto
 }; 

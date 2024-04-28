@@ -103,10 +103,26 @@ double Conserva::calculaPorcGanancia()
 
 string Conserva::toString()
 {
-    stringstream s; 
-    s << " Nombre " << nombreComercial << endl; 
+    string result = "Codigo: " + getCodigo() + "\n";
+    result += "Nombre Comercial: " + getNombreComercial() + "\n";
+    result += "Descripcion: " + getDescripcion() + "\n";
+    result += " Categoria: " + getCategoria();
+    result += "Precio Costo: " + to_string(getPrecioCosto()) + "\n";
+    result += "Existencia: " + to_string(getExistencia()) + "\n";
+    result += "Limite: " + to_string(getLimite()) + "\n";
+    result += "Emvasado?: ";
+    if (esEnvasado()) {
+        result += "Si\n";
+    }
+    else {
+        result+="No\n";
+    }
 
+    return result;
+}
 
-    return s.str(); 
+bool Conserva::esEnvasado()
+{
+    return envasado;
 }
 

@@ -21,9 +21,19 @@ void Abarrote::setEmpresaNombre(string empresa) {
 
 string Abarrote::toString()
 {
-    stringstream s; 
-    s << "Esto es un toString()" << endl; 
-    return s.str(); 
+    string result = ptrProducto->toString(); 
+
+    result += "Nacional: "; 
+    if (esNacional()) { 
+        result += "Si\n"; 
+    }
+    else {
+        result += "No\n"; 
+    }
+    result += "Peso: " + to_string(getPeso()) + "\n"; 
+    result += "Empresa: " + (empresaNombre)+"\n";
+
+    return result; 
 }
 
 

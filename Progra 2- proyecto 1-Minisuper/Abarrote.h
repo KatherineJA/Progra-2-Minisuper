@@ -15,7 +15,7 @@ public:
     string toString() override;
 
 
-    // Heredado vía ProdPerecedero
+    // Heredado vï¿½a ProdPerecedero
     void setCategoria(int) override;
 
     bool getNacional() override;
@@ -57,6 +57,9 @@ public:
     bool esNacional() override;
 
     double calculaPorcGanancia() override;
+
+   
+
 
 };
 

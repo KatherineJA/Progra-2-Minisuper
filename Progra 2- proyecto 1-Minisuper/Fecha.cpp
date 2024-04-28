@@ -52,7 +52,7 @@ void Fecha::obtenerFechaActual()
     struct tm fechaBuffer;
     localtime_s(&fechaBuffer, &tiempoActual);
 
-    // Actualizar los valores de día, mes y año
+    // Actualizar los valores de dï¿½a, mes y aï¿½o
     dia = fechaBuffer.tm_mday;
     mes = fechaBuffer.tm_mon + 1; // tm_mon es 0-indexado
     annio = fechaBuffer.tm_year + 1900;

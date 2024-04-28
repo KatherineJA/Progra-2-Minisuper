@@ -24,7 +24,7 @@ public:
 
 
 
-	// Heredado vía ProdPerecedero
+	// Heredado vï¿½a ProdPerecedero
 	bool getNacional() override;
 
 	double getPeso() override;
@@ -64,6 +64,8 @@ public:
 	bool esNacional() override;
 
 	double calculaPorcGanancia() override;
+
+	
 
 };
 

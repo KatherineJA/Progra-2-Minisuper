@@ -35,9 +35,20 @@ string Carne::getParteDeAnimal() {
 
 string Carne::toString()
 {
-    stringstream s; 
-    s << "Carne?" << endl;
-    return s.str(); 
+    string result = ptrProducto->toString();
+
+    result += "Nacional: ";
+    if (esNacional()) {
+        result += "Si\n";
+    }
+    else {
+        result += "No\n";
+    }
+    result += "Peso: " + to_string(getPeso()) + "\n";
+
+    result += "Animal: " + (animal) + "\n" + "Parte del animal: " + (parteDelAnimal) + "\n";
+    return result;
+
 }
 
 
