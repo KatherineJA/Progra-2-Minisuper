@@ -25,10 +25,14 @@ public:
 	void eliminarPorNombreCM(string nombreCM);
 
 	Producto* buscarProductoCodigo(string codigo);
-	
+	Producto* buscarProductoCategoria(int categoria);
+
 	Lista<Producto>* seleccionarProductosPorCodigo(string codigo, int cantidad);
-	
+	 //Reportes
 	string toString();
+	
+	Lista<Producto>* reporteCategorias(int categoria);
+	
 };
 
 #endif ALMACEN_H

@@ -52,7 +52,7 @@ void Almacen::actualizarProductoPorCodigo(string codigo, double nuevoPrecioCosto
             producto->setPrecio(nuevoPrecioCosto);
             producto->setExistencia(nuevaExistencia);
             std::cout << "Producto actualizado correctamente." << std::endl;
-            return;
+            
         }
         actual = actual->getSiguiente();
     }
@@ -194,6 +194,41 @@ Producto* Almacen::buscarProductoCodigo(string codigo)
 
 }
 
+Producto* Almacen::buscarProductoCategoria(int categoria)
+{
+    // Verificar que el puntero de listaProductos no es nullptr
+    if (listaProductos == nullptr) {
+        std::cerr << "Error: La lista de productos no está inicializada (nullptr)." << std::endl;
+        return nullptr;
+    }
+
+
+
+    Nodo<Producto>* actual = listaProductos->getPrimero();
+
+    while (actual != nullptr) {
+        Producto* producto = actual->getInfo();
+
+        // Verificar que el producto y su código no son nullptr
+        if (producto == nullptr) {
+            std::cerr << "Error: Nodo contiene producto nulo." << std::endl;
+            actual = actual->getSiguiente();
+            continue; // Saltar al siguiente nodo
+        }
+
+
+
+        if (producto->getCategoria() == categoria) {
+            return producto; // Producto encontrado
+        }
+
+        actual = actual->getSiguiente(); // Avanzar al siguiente nodo
+    }
+
+    std::cout << "No hay productos de categoria:  " << categoria << " intente mas tarde. para quejas a soporte tecnico con Khaterine Jara 88349034" << std::endl;
+    return nullptr; // Producto no encontrado 
+}
+
 Lista<Producto>* Almacen::seleccionarProductosPorCodigo(string codigo, int cantidad)
 {
     if (ListaProductoVacia()) {
@@ -269,6 +304,32 @@ string Almacen::toString()
     }
 
     return s.str(); // Devolver la cadena generada
+}
+
+Lista<Producto>* Almacen::reporteCategorias(int categoria)
+{
+    if (ListaProductoVacia()) {
+        cout << "El almacén está vacío. No hay productos que mostar." << endl;
+        return nullptr;
+    }
+    Producto* producto = buscarProductoCategoria(categoria);
+
+    if (producto == nullptr) {
+        cout << "No hay productos de esa categoria (" << categoria << ") vuelva mas tarde." << endl;
+        return nullptr;
+    }
+
+    Nodo<Producto>* actual = listaProductos->getPrimero();
+    while (actual != nullptr) {
+        Producto* producto = actual->getInfo();
+
+        if (producto->getCategoria() == categoria) {
+            producto->toString();
+        }
+        actual = actual->getSiguiente();
+    }
+
+    cout << "Producto con la categoria " << categoria <<" no encontrado" << endl;
 }
 
 
