@@ -127,3 +127,12 @@ string ConcreteProducto::toString()
     result += "Limite: " + to_string(getLimite()) + "\n";
     return result;
 }
+
+string ConcreteProducto::toStringFactu()
+{
+    string result = "Codigo: " + getCodigo() + "\n"; 
+    result += "Nombre Comercial: " + getNombreComercial() + "\n"; 
+    result += "Descripcion: " + getDescripcion() + "\n";
+    result += "\nPrecioCosto: " + to_string(getPrecioCosto()) + "\n";
+    return result; 
+}

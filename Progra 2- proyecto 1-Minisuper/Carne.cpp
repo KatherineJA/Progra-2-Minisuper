@@ -14,6 +14,13 @@ Carne::Carne(Producto* producto, string animal, string parteDeAnimal,double peso
     this->peso = peso;
     this->nacional = nacional;
     this->perecedero = p1; 
+    this->categoria = producto->getCategoria();
+    this->codigo = producto->getCodigo();
+    this->limite = producto->getLimite();
+    this->existencia = producto->getExistencia();
+    this->nombreComercial = producto->getNombreComercial();
+    this->descripcion = producto->getDescripcion();
+    this->precioCosto = producto->getPrecioCosto();
 }
 
 
@@ -37,7 +44,7 @@ string Carne::getParteDeAnimal() {
 string Carne::toString()
 {
     string result = ptrProducto->toString();
-
+    result += perecedero->toStringFechaCaducidad();
     result += "Nacional: ";
     if (esNacional()) {
         result += "Si\n";
@@ -50,6 +57,23 @@ string Carne::toString()
     result += "Animal: " + (animal) + "\n" + "Parte del animal: " + (parteDelAnimal) + "\n";
     return result;
 
+}
+
+string Carne::toStringFactu()
+{
+    string result = ptrProducto->toStringFactu();
+    result += perecedero->toStringFechaCaducidad();
+    result += "Nacional: ";
+    if (esNacional()) { 
+        result += "Si\n"; 
+    } 
+    else {
+        result += "No\n"; 
+    } 
+    result += "Peso: " + to_string(getPeso()) + "\n"; 
+
+    result += "Animal: " + (animal)+"\n" + "Parte del animal: " + (parteDelAnimal)+"\n"; 
+    return result; 
 }
 
 

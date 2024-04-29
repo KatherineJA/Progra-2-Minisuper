@@ -40,6 +40,7 @@ public:
 	double capturarPeso();
 	int captuarCategoria(); 
 	int capturarLimite(); 
+	int capturarCantidad();
 	int capturarExistencia();
 	int capturarDia(); 
 	int capturarAnnio(); 

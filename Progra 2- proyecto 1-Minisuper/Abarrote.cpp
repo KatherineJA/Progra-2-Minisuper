@@ -7,6 +7,13 @@ Abarrote::Abarrote(Producto* producto, string nombreEmpresa,double peso,bool nac
     this->peso = peso; 
     this->nacional = nacional; 
     this->perecedero = p1; 
+    this->categoria = producto->getCategoria();
+    this->codigo = producto->getCodigo();
+    this->limite = producto->getLimite();
+    this->existencia = producto->getExistencia();
+    this->nombreComercial = producto->getNombreComercial();
+    this->descripcion = producto->getDescripcion();
+    this->precioCosto = producto->getPrecioCosto();
 }
 
 
@@ -22,7 +29,7 @@ void Abarrote::setEmpresaNombre(string empresa) {
 string Abarrote::toString()
 {
     string result = ptrProducto->toString(); 
-
+   result += perecedero->toStringFechaCaducidad();
     result += "Nacional: "; 
     if (esNacional()) { 
         result += "Si\n"; 
@@ -34,6 +41,23 @@ string Abarrote::toString()
     result += "Empresa: " + (empresaNombre)+"\n";
 
     return result; 
+}
+
+string Abarrote::toStringFactu()
+{
+    string result = ptrProducto->toStringFactu();
+    result += perecedero->toStringFechaCaducidad();
+    result += "\nNacional: ";
+    if (esNacional()) {
+        result += "Si\n";
+    }
+    else {
+        result += "No\n";
+    }
+    result += "Peso: " + to_string(getPeso()) + "\n";
+    result += "Empresa: " + (empresaNombre)+"\n";
+
+    return result;
 }
 
 

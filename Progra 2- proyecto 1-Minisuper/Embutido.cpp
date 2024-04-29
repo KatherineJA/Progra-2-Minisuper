@@ -30,19 +30,36 @@ bool Embutido::esDeTripa()
 	return empaque->esDeTripa(tripa); 
 }
 
-string Embutido::toStringEmbutido()
+string Embutido::toString()
 {
 	string result = Carne::toString(); 
 
-	result += "Marca: "+ (getMarca())+ "\n" + "Tripa: ";
+	result += "Marca: " + (getMarca()) + "\n" + "Tripa: "; 
 
-		 if (esDeTripa()) {
-			 result += "Si\n";
-		 }
-		 else {
-			 result += "No\n";
-		 }
-		 return result; 
+	if (esDeTripa()) { 
+		result += "Si\n"; 
+	}
+	else { 
+		result += "No\n"; 
+	}
+	return result; 
 }
+
+string Embutido::toStringFactu()
+{
+	string result = Carne::toStringFactu(); 
+
+	result += "Marca: " + (getMarca()) + "\n" + "Tripa: ";
+
+	if (esDeTripa()) {
+		result += "Si\n";
+	}
+	else {
+		result += "No\n";
+	}
+	return result;
+}
+
+
 
 

@@ -21,7 +21,7 @@ public:
 	string getParteDeAnimal();
 
 	string toString() override;
-
+	string toStringFactu() override;
 
 
 	// Heredado v�a ProdPerecedero

@@ -34,6 +34,7 @@ public:
 
 	///////
 	virtual string toString() = 0;
+	virtual string toStringFactu() = 0;
 
 };
 

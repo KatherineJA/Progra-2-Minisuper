@@ -285,6 +285,14 @@ int InterfazUsuario::capturarLimite()
     return limite; 
 }
 
+int InterfazUsuario::capturarCantidad()
+{
+    int cantidad;
+    cout << "Ingrese la cantidad de productos que desea comprar: ";
+    cin >> cantidad;
+    return cantidad;
+}
+
 int InterfazUsuario::capturarExistencia()
 {
     int existencia; 

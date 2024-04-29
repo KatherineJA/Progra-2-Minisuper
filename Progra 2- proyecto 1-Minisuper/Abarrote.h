@@ -13,7 +13,7 @@ public:
     string getEmpresaNombre();
     void setEmpresaNombre(string empresa);
     string toString() override;
-
+    string toStringFactu() override;
 
     // Heredado via ProdPerecedero
     void setCategoria(int) override;

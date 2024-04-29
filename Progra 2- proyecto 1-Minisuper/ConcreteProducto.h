@@ -30,5 +30,6 @@ public:
 	
 
 	string toString() override;
+	string toStringFactu() override;
 };
 #endif CONCRETEPRODUCTO_H

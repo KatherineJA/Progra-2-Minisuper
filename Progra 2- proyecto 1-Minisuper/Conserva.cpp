@@ -121,6 +121,23 @@ string Conserva::toString()
     return result;
 }
 
+string Conserva::toStringFactu()
+{
+    string result = "Codigo: " + getCodigo() + "\n"; 
+    result += "Nombre Comercial: " + getNombreComercial() + "\n"; 
+    result += "Descripcion: " + getDescripcion() + "\n";
+    result += "\nPrecio Costo: " + to_string(getPrecioCosto()) + "\n";
+    result += "Envasado?: "; 
+    if (esEnvasado()) { 
+        result += "Si\n"; 
+    }
+    else {
+        result += "No\n"; 
+    }
+     
+    return result; 
+}
+
 bool Conserva::esEnvasado()
 {
     return envasado;

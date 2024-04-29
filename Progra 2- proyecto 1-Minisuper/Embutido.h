@@ -16,7 +16,8 @@ public:
 	void setMarca(string marca);
 	string getMarca();
 	bool esDeTripa(); 
-	string toStringEmbutido() ; 
+	string toString() override;
+	string toStringFactu() override;
 };
 
 #endif EMBUTIDO_H

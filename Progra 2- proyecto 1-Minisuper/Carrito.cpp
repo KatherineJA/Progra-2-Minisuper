@@ -114,7 +114,7 @@ string Carrito::toStringCarrito()
 		Nodo<Producto>* actual = lista->getPrimero();
 		while (actual != nullptr) { 
 			Producto* producto = actual->getInfo();
-			s << producto->toString() << endl; 
+			s << producto->toStringFactu() << endl; 
 			contador++;
 			actual = actual->getSiguiente(); 
 		}

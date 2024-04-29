@@ -38,7 +38,7 @@ int Fecha::getAnnio() {
 
 string Fecha::toStringFecha() {
     stringstream s;
-    s << dia << "/" << mes << "/" << annio;
+    s << dia << "/" << mes << "/" << annio<<endl;
     return s.str();
 }
 

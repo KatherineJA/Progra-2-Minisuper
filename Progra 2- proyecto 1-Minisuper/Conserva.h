@@ -42,7 +42,7 @@ public:
 	double calculaPorcGanancia() override;
 
 	string toString() override;
-
+	string toStringFactu() override;
 	bool esEnvasado();
 
 	// Heredado via Producto
