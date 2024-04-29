@@ -28,10 +28,25 @@ public:
 	static int menuActualizacionProducto(); 
 	
 	//capturadores
-	
-
-
-
+	string capturarCodigo(); 
+	string capturarNombre(); 
+	string capturarCedula(); 
+	string capturarDescripcion(); 
+	string capturarEmpresa(); 
+	string capturarMarca();
+	string capturarAnimal(); 
+	string capturarParteAnimal(); 
+	double capturarPrecio(); 
+	double capturarPeso();
+	int captuarCategoria(); 
+	int capturarLimite(); 
+	int capturarExistencia();
+	int capturarDia(); 
+	int capturarAnnio(); 
+	int capturarMes(); 
+	bool capturarEnvasado(); 
+	bool capturarNacionalidad(); 
+	bool capturarTripa(); 
 	//Nueva Version 
 	Producto* capturarAbarrote(); 
 	Producto* capturarConserva(); 

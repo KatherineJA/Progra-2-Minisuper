@@ -78,17 +78,11 @@ void Controladora::eliminarProducto() {
     int opcionEliminacion = vista->menuNombreCodigo();
     switch (opcionEliminacion) {
     case 1: {
-        string codigo;
-        cout << "Ingrese el codigo del producto a eliminar:";
-        cin >> codigo;
-        modelo->eliminarPorCodigo(codigo);
+        modelo->eliminarPorCodigo(vista->capturarCodigo());
         break;
     }
     case 2: {
-        string nombrePC;
-        cout << "Ingrese el nombre del producto a eliminar:";
-        getline(cin, nombrePC);
-        modelo->eliminarPorNombreCM(nombrePC);
+        modelo->eliminarPorNombreCM(vista->capturarNombre());
         break;
     }
     case 3: {
@@ -102,29 +96,11 @@ void Controladora::actualizarProducto() {
     int opcionActualizacion = vista->menuNombreCodigo();
     switch (opcionActualizacion) {
     case 1: {
-        string codigo; 
-        double nuevoPrecio; 
-        double nuevaExistencia; 
-        cout << "Ingrese el codigo del producto a actualizar "; 
-        cin >> codigo; 
-        cout << "Ingrese el nuevo Precio del producto a actualizar ";
-        cin >> nuevoPrecio;
-        /*cout << "Ingrese la nueva Existencia del producto a actualizar ";
-        cin >> nuevaExistencia;*/
-        modelo->actualizarProductoPrecioPorCodigo(codigo,nuevoPrecio);
+        modelo->actualizarProductoPrecioPorCodigo(vista->capturarCodigo(), vista->capturarPrecio());
         break;
     }
     case 2: {
-        string nombreCM;
-        double nuevoPrecio;
-        double nuevaExistencia;
-        cout << "Ingrese el nombre Comercial del producto a actualizar ";
-        cin >> nombreCM;
-        cout << "Ingrese el nuevo Precio del producto a actualizar ";
-        cin >> nuevoPrecio;
-       /* cout << "Ingrese la nueva Existencia del producto a actualizar ";
-        cin >> nuevaExistencia;*/
-        modelo->actualizarProductoPrecioPorNombre(nombreCM, nuevoPrecio);
+        modelo->actualizarProductoPrecioPorNombre(vista->capturarNombre(),vista->capturarPrecio());
         break;
     }
     case 3: {
@@ -138,12 +114,13 @@ void Controladora::menuMantenimiento() {
     int opcion = vista->menuMantenimiento();
     switch (opcion) {
     case 1: {
-        
-        string codi;
-        cout << "Antes de continuar Ingrese el codigo del producto que desea agregar: ";
-        cin >> codi;
-        if (modelo->verificarCod(codi) == false) {
+        cout << "Antes de continuar ";
+        if (modelo->verificarCod(vista->capturarCodigo()) == false) {
+            system("pause");
+            system("cls");
+           
             ingresarProducto();
+            system("pause"); 
         }
         else {
             cout << "Ya existe un producto con ese código, Si desea actualizarlo o saber más información, diríjase al apartado respectivo (Actualizar)." << endl;
@@ -178,10 +155,8 @@ void Controladora::menuReporte() {
         break;
     }
     case 2: {
-        int categoria;
-        cout << "Ingrese la categoria que desea ver el reporte: " << endl; 
-        cin >> categoria; 
-        modelo->reporteCategorias(categoria); 
+        
+        modelo->reporteCategorias(vista->captuarCategoria()); 
         system("pause"); 
         break;
     }
@@ -191,10 +166,8 @@ void Controladora::menuReporte() {
         break;
     }
     case 4: {
-        string id;
-        cout << "Ingrese la cedula del cliente: ";
-        cin >> id;
-        factura->MostrarVentaClienteCedula(id);
+        
+        factura->MostrarVentaClienteCedula(vista->capturarCedula());
         system("pause");
         break;
     }
@@ -237,22 +210,10 @@ void Controladora::agregarEmbutido()
 
 void Controladora::crearFacturaCompra()
 {
-    string nombre  ;
-    string cedula  ;
-
-    cout << "Nombre del cliente: ";
-    cin >> nombre;
-    cout << "Cedula del cliente: ";
-    cin >> cedula;
-    Cliente* cliente = new Cliente(nombre, cedula);
-    string codigoProdu ;
-    int cantiadproducts ;
-    cout << "Codigo del producto: ";
-    cin >>codigoProdu;
-    cout << "Cantidad del producto a llevar: ";
-    cin >> cantiadproducts;
-
-    Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo(codigoProdu, cantiadproducts));
+    
+    Cliente* cliente = new Cliente(vista->capturarNombre(), vista->capturarCedula());
+   
+    Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo(vista->capturarCodigo(),vista->capturarLimite()));
     Fecha* f2 = new Fecha(6, 8, 2024);
     Venta* venta = new Venta(carrito, f2);
     factura->agregarVenta(venta);

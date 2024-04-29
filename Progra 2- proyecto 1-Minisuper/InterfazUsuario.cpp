@@ -177,170 +177,228 @@ int InterfazUsuario::menuActualizacionProducto()
     }
 }
 
+string InterfazUsuario::capturarCodigo()
+{
+    string Codigo;
+    cout << "Ingrese el codigo del producto: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, Codigo);
+    return Codigo;
+}
+
+string InterfazUsuario::capturarNombre()
+{
+    string nombre; 
+    cout << "Ingrese el Nombre: " << endl;
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, nombre);
+    return nombre; 
+}
+
+string InterfazUsuario::capturarCedula()
+{
+    string cedula; 
+    cout << "Ingrese la cedula del cliente: " << endl; 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin,cedula); 
+    return cedula; 
+}
+
+string InterfazUsuario::capturarDescripcion()
+{
+    string Des; 
+    cout << "Ingrese la descripción del producto: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, Des); 
+    return Des; 
+}
+
+string InterfazUsuario::capturarEmpresa()
+{
+    string Empresa;
+    cout << "Ingrese el nombre de la Empresa : ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, Empresa);
+    return Empresa;
+}
+
+string InterfazUsuario::capturarMarca()
+{
+    string Marca;
+    cout << "Ingrese el nombre de la Marca: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, Marca);
+    return Marca;
+}
+
+string InterfazUsuario::capturarAnimal()
+{
+    string Animal;
+    cout << "Ingrese el nombre del Animal: ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, Animal);
+    return Animal; 
+}
+
+string InterfazUsuario::capturarParteAnimal()
+{
+    string ParteAnimal;
+    cout << "Ingrese el nombre de la parte del Animal : ";
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    getline(cin, ParteAnimal);
+    return ParteAnimal;
+}
+
+double InterfazUsuario::capturarPrecio()
+{
+    double precio; 
+    cout << "Ingrese el precio: " << endl; 
+    cin >> precio; 
+    return precio; 
+}
+
+double InterfazUsuario::capturarPeso()
+{
+    double peso;
+    cout << "Ingrese el peso: " << endl;
+    cin >> peso;
+    return peso;
+}
+
+int InterfazUsuario::captuarCategoria()
+{
+    int categoria; 
+    cout << " Ingrese la categoria del producto " << endl; 
+    cin >> categoria; 
+    return categoria; 
+}
+
+int InterfazUsuario::capturarLimite()
+{
+    int limite; 
+    cout << " Ingrese el limite del producto: " << endl; 
+    cin >> limite; 
+    return limite; 
+}
+
+int InterfazUsuario::capturarExistencia()
+{
+    int existencia; 
+    cout << "Ingrese la existencia del producto: ";
+    cin >> existencia;  
+    return existencia; 
+}
+
+int InterfazUsuario::capturarDia()
+{
+    int dia; 
+    cout << "Ingrese el dia: "; 
+    cin >> dia; 
+    return dia; 
+}
+
+int InterfazUsuario::capturarAnnio()
+{
+    int annio;
+    cout << "Ingrese el annio: ";
+    cin >> annio;
+    return annio;
+}
+
+int InterfazUsuario::capturarMes()
+{
+    int mes;
+    cout << "Ingrese el mes: ";
+    cin >> mes;
+    return mes;
+}
+
+bool InterfazUsuario::capturarEnvasado()
+{
+    bool envasado; 
+    cout << "¿Está envasado? (0 para No, 1 para Si): ";
+    cin >> envasado;
+    return envasado; 
+}
+
+bool InterfazUsuario::capturarNacionalidad()
+{
+    bool nacional;
+    cout << "¿Es nacional? (0 para No, 1 para Si): ";
+    cin >> nacional;
+    return nacional;
+}
+
+bool InterfazUsuario::capturarTripa()
+{
+    bool tripa;
+    cout << "¿Es de tripa? (0 para No, 1 para Si): ";
+    cin >> tripa;
+    return tripa;
+}
+
 
 
 Producto* InterfazUsuario::capturarAbarrote()
 {
-    string codigo ;
-    string NombreCM ;
-    string Des ;
     int catgoria = 2;
-    string empresa ; 
-    double precio ;
-    int cantidad ;
-    int existencia ;
-    bool nacionalidad ; 
-    double peso ; 
-
-    cout << "Ingrese el codigo del producto: ";
-    cin >> codigo;  // Leer entrada para 'codigo'
-
-    cout << "Ingrese el nombre del producto: ";
-    cin.ignore();   // Limpiar el buffer para getline
-    cin >> NombreCM;// Leer entrada para 'nombreCM '
-
-    cout << "Ingrese la descripcion del producto: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-    getline(cin, Des);  // Leer entrada para 'descripcion'
-
-    cout << "Ingrese el precio del producto: ";
-    cin >> precio;  // Leer entrada para 'precio'
-
-    cout << "Ingrese la cantidad del producto: ";
-    cin >> cantidad;  // Leer entrada para 'cantidad'
-
-    cout << "Ingrese la existencia del producto: ";
-    cin >> existencia;  // Leer entrada para 'existencia'
-
-    Producto* concreto = new ConcreteProducto(codigo, NombreCM, Des, catgoria, precio, existencia, cantidad); 
-    int dia ;
-    int anio ;
-    int mes ;
-    cout << "Ingrese el dia de caducidad del perecedero: ";
-    cin >> dia;
-    cout << "Ingrese el mes de caducidad del perecedero: ";
-    cin >> mes;
-    cout << "Ingrese el annio de caducidad del perecedero: ";
-    cin >> anio;
+    string nombre = capturarNombre(); 
+    string codigo = capturarCodigo(); 
+    string descripcion = capturarDescripcion(); 
+    string empresa = capturarEmpresa(); 
+    int existencia = capturarExistencia();
+    double precio = capturarPrecio(); 
+    int limite = capturarLimite(); 
+    bool nacionalidad = capturarNacionalidad() ; 
+    double peso = capturarPeso() ;  
+    Producto* concreto = new ConcreteProducto(codigo,nombre, descripcion, catgoria, precio, existencia,limite);
+    int dia = capturarDia();
+    int anio = capturarAnnio();
+    int mes = capturarMes();
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
-    cout << "Es nacional? (0 para no, 1 para si): ";
-    cin >> nacionalidad;
-    cout << "Ingrese el peso del producto:"; 
-    cin >> peso; 
-    cout << "Ingrese la empresa del producto: ";
-    cin >> empresa;  
-
-    ProdPerecedero* abarrote = new Abarrote(concreto, empresa,peso,nacionalidad); 
-
-
-   
+    ProdPerecedero* abarrote = new Abarrote(concreto, empresa, peso , nacionalidad);
     return abarrote; 
 }
 
 Producto* InterfazUsuario::capturarConserva()
 {
-    string codigo;
-    string NombreCM ;
-    string Des;
+    string codigo = capturarCodigo();
+    string nombre = capturarNombre(); 
+    string descripcion = capturarDescripcion();
     int catgoria = 1;
-    double precio ;
-    int limite ;
-    int existencia ;
-    bool envasado; 
-    cout << "Ingrese el codigo del producto: ";
-    cin >> codigo;  // Leer entrada para 'codigo'
-
-    cout << "Ingrese el nombre del producto: ";
-    cin.ignore();   // Limpiar el buffer para getline
-    cin >> NombreCM;// Leer entrada para 'nombreCM '
-
-    cout << "Ingrese la descripción del producto: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Des);  // Leer entrada para 'descripcion'
-
-    cout << "Ingrese el precio del producto: ";
-    cin >> precio;  // Leer entrada para 'precio'
-
-    cout << "Ingrese el limite ";
-    cin >> limite;  // Leer entrada para 'cantidad'
-
-    cout << "Ingrese la existencia del producto: ";
-    cin >> existencia;  // Leer entrada para 'existencia'
-    
-    cout << "¿Está envasado? (0 para No, 1 para Si): ";
-    cin >> envasado;
-
-    Producto* conserva = new Conserva(codigo,NombreCM,Des,catgoria,precio,existencia,limite,envasado);
+    int precio = capturarPrecio();
+    int limite = capturarLimite();
+    int existencia = capturarExistencia() ;
+    bool envasado = capturarEnvasado(); 
+    Producto* conserva = new Conserva(codigo,nombre,descripcion,catgoria,precio,existencia,limite,envasado);
     return conserva; 
 
 }
 
 Producto* InterfazUsuario::capturarEmbutido()
 {
-    string codigo;
-    string NombreCM;
-    string Des;
+    string codigo = capturarCodigo(); 
+    string nombre = capturarNombre();
+    string descripcion = capturarDescripcion();
     int catgoria = 3;
-    string marca;
-    double precio;
-    int cantidad;
-    int existencia;
-    bool nacionalidad;
-    bool tripa; 
-    double peso;
-    string animal; 
-    string parteAnimal; 
-    cout << "Ingrese el codigo del producto: ";
-    cin >> codigo;  // Leer entrada para 'codigo'
-
-    cout << "Ingrese el nombre del producto: ";
-    cin.ignore();   // Limpiar el buffer para getline
-    cin >> NombreCM;// Leer entrada para 'nombreCM '
-
-    cout << "Ingrese la descripcion del producto: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Des);  // Leer entrada para 'descripcion'
-
-
-    cout << "Ingrese el precio del producto: ";
-    cin >> precio;  // Leer entrada para 'precio'
-
-    cout << "Ingrese la cantidad del producto: ";
-    cin >> cantidad;  // Leer entrada para 'cantidad'
-
-    cout << "Ingrese la existencia del producto: ";
-    cin >> existencia;  // Leer entrada para 'existencia'
-
-    Producto* concreto = new ConcreteProducto(codigo, NombreCM, Des, catgoria, precio, existencia, cantidad);
-    int dia;
-    int anio;
-    int mes;
-    cout << "Ingrese el dia de caducidad del perecedero: ";
-    cin >> dia;
-    cout << "Ingrese el mes de caducidad del perecedero: ";
-    cin >> mes;
-    cout << "Ingrese el annio de caducidad del perecedero: ";
-    cin >> anio;
+    string marca = capturarMarca();
+    double precio = capturarPrecio();
+    int cantidad = capturarLimite();
+    int existencia = capturarExistencia();
+    bool nacionalidad = capturarNacionalidad();
+    bool tripa = capturarTripa(); 
+    double peso = capturarPeso();
+    string animal = capturarAnimal(); 
+    string parteAnimal = capturarParteAnimal(); 
+    Producto* concreto = new ConcreteProducto(codigo, nombre, descripcion, catgoria, precio, existencia, cantidad);
+    int dia = capturarDia();
+    int anio = capturarAnnio();
+    int mes = capturarMes();
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
-    cout << "Es nacional? (0 para no, 1 para si): ";
-    cin >> nacionalidad;
-    cout << "Ingrese el peso del producto:";
-    cin >> peso;
-    cout << "Ingrese la marca del producto: ";
-    getline(cin, marca);
-    cout << "Ingrese el nombre del animal del producto: ";
-    getline(cin, animal);
-    cout << "Ingrese la parte del animal del producto: ";
-    getline(cin, parteAnimal);
-    cout << "Es de tripa el producto 1 para si 0 para no ";
-    cin >> tripa; 
-
     ProdPerecedero* carne = new Carne(concreto, animal, parteAnimal,peso,nacionalidad); 
     Producto* embutido = new Embutido(carne, marca, tripa);
-
-
     return embutido;
 }
 
