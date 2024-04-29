@@ -92,7 +92,7 @@ void Controladora::eliminarProducto() {
     }
 }
 
-void Controladora::actualizarProducto() {
+void Controladora::actualizarProductoPrecio() {
     int opcionActualizacion = vista->menuNombreCodigo();
     switch (opcionActualizacion) {
     case 1: {
@@ -110,6 +110,30 @@ void Controladora::actualizarProducto() {
     }
 }
 
+void Controladora::actualizarProductoExistencia()
+{
+    int opcionActualizacion = vista->menuNombreCodigo();
+    switch (opcionActualizacion) {
+    case 1: {
+        string codigo = vista->capturarCodigo(); 
+        int existenciaNueva = vista->capturarExistencia(); 
+        modelo->actualizarExistenciaPorCodigo(codigo,existenciaNueva);
+        break;
+    }
+    case 2: {
+        string nombre = vista->capturarNombre(); 
+        int existenciaNueva = vista->capturarExistencia(); 
+        modelo->actulizarExistenciaPorNombre(nombre,existenciaNueva);
+        break;
+        
+    }
+    case 3: {
+        // Retornar al menu de mantenimiento
+        break;
+    }
+    }
+}
+
 void Controladora::menuMantenimiento() {
     int opcion = vista->menuMantenimiento();
     switch (opcion) {
@@ -118,9 +142,8 @@ void Controladora::menuMantenimiento() {
         if (modelo->verificarCod(vista->capturarCodigo()) == false) {
             system("pause");
             system("cls");
-           
             ingresarProducto();
-            system("pause"); 
+            system("pause");
         }
         else {
             cout << "Ya existe un producto con ese código, Si desea actualizarlo o saber más información, diríjase al apartado respectivo (Actualizar)." << endl;
@@ -135,7 +158,7 @@ void Controladora::menuMantenimiento() {
         break;
     }
     case 3: {
-        actualizarProducto();
+        menuActualizar(); 
         break;
     }
     case 4: {
@@ -181,6 +204,27 @@ void Controladora::menuReporte() {
 
         break;
     }
+    }
+}
+
+void Controladora::menuActualizar()
+{
+    int opcion = vista->menuActualizacionProducto(); 
+    switch (opcion){
+    case 1: {
+        actualizarProductoPrecio(); 
+        system("pause");
+        break;
+    }
+    case 2: {
+        actualizarProductoExistencia(); 
+        system("pause");
+        break;
+    }
+    case 3: {
+        break; 
+    }
+    
     }
 }
 

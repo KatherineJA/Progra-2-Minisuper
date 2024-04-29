@@ -14,10 +14,12 @@ public:
 	void ejecutar();
 	void ingresarProducto();
 	void eliminarProducto();
-	void actualizarProducto();
+	void actualizarProductoPrecio();
+	void actualizarProductoExistencia();
 	void menuMantenimiento();
 	void menuVentas();
 	void menuReporte();
+	void menuActualizar(); 
 	~Controladora();
 
 	void agregarAbarrote();

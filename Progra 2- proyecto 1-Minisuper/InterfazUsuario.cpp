@@ -167,8 +167,12 @@ int InterfazUsuario::menuProductos()
 
 int InterfazUsuario::menuActualizacionProducto()
 {
-    cout << "1. Actualizacion del precio: " << endl; 
-    cout << "2. Actualizacion de la existencia:  " << endl; 
+    cout << "\033[1;36m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+    cout << "           Actualizacion Productos\n";
+    cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0m\n\n";
+    cout << "\033[1m1.Actualizar Precio\n";
+    cout << "2.Actualizar Existencia \n";
+    cout << "3. Retornar al menu anterior \n\n\033[0m";
     try {
         return  opcion();
     }
