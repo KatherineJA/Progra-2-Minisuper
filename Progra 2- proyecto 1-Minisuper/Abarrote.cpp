@@ -1,12 +1,12 @@
 #include "Abarrote.h"
 #include <sstream>
-Abarrote::Abarrote(Producto* producto, string nombreEmpresa,double peso,bool nacional)
+Abarrote::Abarrote(Producto* producto, string nombreEmpresa,double peso,bool nacional,Perecedero* p1)
 {
     this->ptrProducto = producto; 
     this->empresaNombre = nombreEmpresa; 
     this->peso = peso; 
     this->nacional = nacional; 
-
+    this->perecedero = p1; 
 }
 
 

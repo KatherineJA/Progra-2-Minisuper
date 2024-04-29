@@ -8,7 +8,7 @@ protected:
 	string empresaNombre;
 public:
 
-    Abarrote(Producto* producto, string nombreEmpresa,double peso,bool nacional);
+    Abarrote(Producto* producto, string nombreEmpresa,double peso,bool nacional,Perecedero* p1);
 
     string getEmpresaNombre();
     void setEmpresaNombre(string empresa);

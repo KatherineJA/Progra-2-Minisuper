@@ -185,35 +185,34 @@ string InterfazUsuario::capturarCodigo()
 {
     string Codigo;
     cout << "Ingrese el codigo del producto: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Codigo);
+   
+    cin>> Codigo;
     return Codigo;
 }
 
 string InterfazUsuario::capturarNombre()
 {
     string nombre; 
-    cout << "Ingrese el Nombre: " << endl;
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, nombre);
+    cout << "Ingrese el Nombre: " ;
+    cin>> nombre;
     return nombre; 
 }
 
 string InterfazUsuario::capturarCedula()
 {
     string cedula; 
-    cout << "Ingrese la cedula del cliente: " << endl; 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin,cedula); 
+    cout << "Ingrese la cedula del cliente: " ; 
+ 
+    cin>> cedula; 
     return cedula; 
 }
 
 string InterfazUsuario::capturarDescripcion()
 {
     string Des; 
-    cout << "Ingrese la descripción del producto: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Des); 
+    cout << "Ingrese la descripcion del producto: ";
+   
+    cin >> Des;
     return Des; 
 }
 
@@ -221,8 +220,8 @@ string InterfazUsuario::capturarEmpresa()
 {
     string Empresa;
     cout << "Ingrese el nombre de la Empresa : ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Empresa);
+   
+    cin>>Empresa;
     return Empresa;
 }
 
@@ -230,8 +229,8 @@ string InterfazUsuario::capturarMarca()
 {
     string Marca;
     cout << "Ingrese el nombre de la Marca: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Marca);
+    
+    cin >> Marca;
     return Marca;
 }
 
@@ -239,8 +238,8 @@ string InterfazUsuario::capturarAnimal()
 {
     string Animal;
     cout << "Ingrese el nombre del Animal: ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, Animal);
+
+   cin>> Animal;
     return Animal; 
 }
 
@@ -248,15 +247,15 @@ string InterfazUsuario::capturarParteAnimal()
 {
     string ParteAnimal;
     cout << "Ingrese el nombre de la parte del Animal : ";
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    getline(cin, ParteAnimal);
+  
+    cin>> ParteAnimal;
     return ParteAnimal;
 }
 
 double InterfazUsuario::capturarPrecio()
 {
     double precio; 
-    cout << "Ingrese el precio: " << endl; 
+    cout << "Ingrese el precio: " ; 
     cin >> precio; 
     return precio; 
 }
@@ -264,7 +263,8 @@ double InterfazUsuario::capturarPrecio()
 double InterfazUsuario::capturarPeso()
 {
     double peso;
-    cout << "Ingrese el peso: " << endl;
+    cout << "Ingrese el peso: ";
+    
     cin >> peso;
     return peso;
 }
@@ -272,7 +272,7 @@ double InterfazUsuario::capturarPeso()
 int InterfazUsuario::captuarCategoria()
 {
     int categoria; 
-    cout << " Ingrese la categoria del producto " << endl; 
+    cout << " Ingrese la categoria del producto "; 
     cin >> categoria; 
     return categoria; 
 }
@@ -280,7 +280,7 @@ int InterfazUsuario::captuarCategoria()
 int InterfazUsuario::capturarLimite()
 {
     int limite; 
-    cout << " Ingrese el limite del producto: " << endl; 
+    cout << " Ingrese el limite del producto: "; 
     cin >> limite; 
     return limite; 
 }
@@ -361,7 +361,7 @@ Producto* InterfazUsuario::capturarAbarrote()
     int mes = capturarMes();
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
-    ProdPerecedero* abarrote = new Abarrote(concreto, empresa, peso , nacionalidad);
+    ProdPerecedero* abarrote = new Abarrote(concreto, empresa, peso , nacionalidad,p1);
     return abarrote; 
 }
 
@@ -401,7 +401,7 @@ Producto* InterfazUsuario::capturarEmbutido()
     int mes = capturarMes();
     Fecha* f11 = new Fecha(dia, mes, anio);
     Perecedero* p1 = new Perecedero(f11);
-    ProdPerecedero* carne = new Carne(concreto, animal, parteAnimal,peso,nacionalidad); 
+    ProdPerecedero* carne = new Carne(concreto, animal, parteAnimal,peso,nacionalidad,p1); 
     Producto* embutido = new Embutido(carne, marca, tripa);
     return embutido;
 }

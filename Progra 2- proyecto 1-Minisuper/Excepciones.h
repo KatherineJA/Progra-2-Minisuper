@@ -7,7 +7,7 @@ using namespace std;
 class excepciones : public exception {
 public:
     virtual const char* what() const throw () {
-        return "Excepci�n general";
+        return "Excepcion general";
     }
 
 };
@@ -15,7 +15,7 @@ public:
 class excpHilera : public excepciones {
 public:
     virtual const char* what() const throw () {
-        return "Excepci�n de digitacion";
+        return "Excepcion de digitacion";
     }
 
 };

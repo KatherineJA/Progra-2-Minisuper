@@ -12,7 +12,7 @@ protected:
 	
 public:
 	Carne();
-	Carne(Producto* producto, string animal, string parteDeAnimal,double peso, bool nacional);
+	Carne(Producto* producto, string animal, string parteDeAnimal,double peso, bool nacional,Perecedero* p1);
 
 	void setAnimal(string animal);
 	string getAnimal();

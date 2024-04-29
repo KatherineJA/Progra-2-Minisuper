@@ -7,12 +7,13 @@ Carne::Carne() : ProdPerecedero() {
 }
 
 
-Carne::Carne(Producto* producto, string animal, string parteDeAnimal,double peso, bool nacional) {
+Carne::Carne(Producto* producto, string animal, string parteDeAnimal,double peso, bool nacional,Perecedero* p1) {
     this->ptrProducto = producto; 
     this->animal = animal;
     this->parteDelAnimal = parteDeAnimal;
     this->peso = peso;
     this->nacional = nacional;
+    this->perecedero = p1; 
 }
 
 

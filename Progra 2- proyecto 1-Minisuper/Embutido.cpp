@@ -11,6 +11,7 @@ Embutido::Embutido(Producto* producto, string marca, bool tripa)
 {
 	this->marca = marca;
 	this->tripa = tripa;
+	this->ptrProducto = producto; 
 	empaque = new Empaque(); 
 }
 
