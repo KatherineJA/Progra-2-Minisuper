@@ -255,15 +255,17 @@ void Controladora::agregarEmbutido()
 void Controladora::crearFacturaCompra()
 {
     
-    Cliente* cliente = new Cliente(vista->capturarNombre(), vista->capturarCedula());
+    Cliente* cliente = new Cliente(vista->capturarNombre(), vista->capturarCedula()); 
    
-    Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo(vista->capturarCodigo(),vista->capturarCantidad()));
-    Fecha* f2 = new Fecha(6, 8, 2024);
-    Venta* venta = new Venta(carrito, f2);
-    factura->agregarVenta(venta);
-    cout << factura->toStringUltimo() << endl;
-    system("pause");
-    system("cls");
+    Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo()); 
+    Fecha* f2 = new Fecha(6, 8, 2024); 
+    Venta* venta = new Venta(carrito, f2); 
+    factura->agregarVenta(venta); 
+    cout << factura->toStringUltimo() << endl; 
+    system("pause"); 
+    system("cls"); 
+   
+  
 }
 
 

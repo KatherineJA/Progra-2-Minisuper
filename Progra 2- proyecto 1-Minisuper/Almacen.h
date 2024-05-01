@@ -26,8 +26,7 @@ public:
 	bool verificarCod(string cod);
 	Producto* buscarProductoCodigo(string codigo);
 	Producto* buscarProductoCategoria(int categoria);
-
-	Lista<Producto>* seleccionarProductosPorCodigo(string codigo, int cantidad);
+	Lista<Producto>* seleccionarProductosPorCodigo();
 	 //Reportes
 	string toString();
 	
