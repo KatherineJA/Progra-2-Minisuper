@@ -258,8 +258,12 @@ void Controladora::crearFacturaCompra()
     Cliente* cliente = new Cliente(vista->capturarNombre(), vista->capturarCedula()); 
    
     Carrito* carrito = new Carrito(cliente, modelo->seleccionarProductosPorCodigo()); 
-    Fecha* f2 = new Fecha(6, 8, 2024); 
-    Venta* venta = new Venta(carrito, f2); 
+    Fecha* fechaObtenida = new Fecha();
+    int annio = fechaObtenida->obtenerAnnioActual();
+    int dia = fechaObtenida->obtenerDiaActual();
+    int mes = fechaObtenida->obtenerMesActual();
+    Fecha* fechaActual = new Fecha(dia, mes, annio);
+    Venta* venta = new Venta(carrito, fechaActual); 
     factura->agregarVenta(venta); 
     cout << factura->toStringUltimo() << endl; 
     system("pause"); 

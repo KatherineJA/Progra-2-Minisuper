@@ -10,8 +10,10 @@ class Fecha
 private:
 	int dia;
 	int mes;
-	int annio;
-	
+	int annio; 
+	 
+
+
 public: 
 	Fecha(); 
 	Fecha(int, int, int);
@@ -25,7 +27,11 @@ public:
 	int getAnnio(); 
 	
 	string toStringFecha(); 
-	void obtenerFechaActual(); 
+	/*void obtenerFechaActual(); */
+	int obtenerDiaActual();
+	int obtenerMesActual();
+	int obtenerAnnioActual();
+
 };
 
 #endif FECHA_H
