@@ -18,8 +18,8 @@ Almacen::~Almacen()
 void Almacen::setListaProductos(Lista<Producto>* lista)
 {
 	if (listaProductos != lista) {
-		delete listaProductos; // Libera la lista anterior
-		listaProductos = lista; // Asigna la nueva lista
+		delete listaProductos; 
+		listaProductos = lista;
 	}
 }
 
@@ -78,7 +78,7 @@ void Almacen::actualizarProductoPrecioPorNombre(string nombre, double nuevoPreci
             return;
         }
         else {
-           cout << "No se encontró ningún producto con el nombre especificado." << endl;
+           cout << "No se encontro ningun producto con el nombre especificado." << endl;
         }
         actual = actual->getSiguiente();
     }
@@ -98,11 +98,11 @@ void Almacen::actualizarExistenciaPorCodigo(string codigo, int cantidad)
     if (producto != nullptr) { 
         int nuevaExistencia = producto->getExistencia() + cantidad; 
         producto->setExistencia(nuevaExistencia);
-        cout << "Existencia actualizada. Nueva cantidad para el producto con código "
+        cout << "Existencia actualizada. Nueva cantidad para el producto con codigo "
             << codigo << ": " << nuevaExistencia << endl;
     }
     else {
-        cout << "No se encontró ningún producto con el código " << codigo << "." << endl; 
+        cout << "No se encontro ningun producto con el codigo " << codigo << "." << endl; 
     } 
 }
 
@@ -123,7 +123,7 @@ void Almacen::actulizarExistenciaPorNombre(string nombre, int existencia)
             return;
         }
         else {
-            cout << "No se encontró ningún producto con el nombre especificado." << endl;
+            cout << "No se encontro ningun producto con el nombre especificado." << endl;
         }
         actual = actual->getSiguiente();
     }
@@ -236,11 +236,10 @@ Producto* Almacen::buscarProductoCodigo(string codigo)
     while (actual != nullptr) {
         Producto* producto = actual->getInfo();  
 
-        // Verificar que el producto y su código no son nullptr
         if (producto == nullptr) {
             cerr << "Error: Nodo contiene producto nulo." << endl; 
             actual = actual->getSiguiente();  
-            continue; // Saltar al siguiente nodo
+            continue; 
         }
 
         
@@ -269,93 +268,93 @@ Producto* Almacen::buscarProductoCategoria(int categoria)
     while (actual != nullptr) {
         Producto* producto = actual->getInfo();
 
-        // Verificar que el producto y su código no son nullptr
+       
         if (producto == nullptr) {
             cerr << "Error: Nodo contiene producto nulo." << endl;
             actual = actual->getSiguiente();
-            continue; // Saltar al siguiente nodo
+            continue; 
         }
 
 
 
         if (producto->getCategoria() == categoria) {
-            return producto; // Producto encontrado
+            return producto; 
         }
 
-        actual = actual->getSiguiente(); // Avanzar al siguiente nodo
+        actual = actual->getSiguiente(); 
     }
 
-    std::cout << "No hay productos de categoria:  " << categoria << " intente mas tarde. para quejas a soporte tecnico con Khaterine Jara 88349034" << std::endl;
-    return nullptr; // Producto no encontrado 
+    cout << "No hay productos de categoria:  " << categoria << " intente mas tarde para quejas a soporte tecnico con Katherine Jara 88888888" <<endl;
+    return nullptr; 
 }
 
 Lista<Producto>* Almacen::seleccionarProductosPorCodigo() {
     Lista<Producto>* listaComprados = new Lista<Producto>();
 
    
-    std::string codigo;
+    string codigo;
     int cantidad;
 
     while (true) {
-        std::cout << "Ingrese el código del producto que desea comprar (o ingrese 0 para terminar):" << std::endl;
-        std::cin >> codigo;
+        cout << "Ingrese el codigo del producto que desea comprar (o ingrese 0 para terminar):" << endl;
+        cin >> codigo;
 
-        // Verificar si se ha ingresado el código 0 para terminar
+      
         if (codigo == "0") {
             if (listaComprados->listaVacia()) {
-                std::cout << "No se han seleccionado productos." << std::endl;
-                delete listaComprados; // Liberar memoria
+                cout << "No se han seleccionado productos." << endl;
+                delete listaComprados; 
                 return nullptr;
             }
             else {
-                std::cout << "Selección de productos finalizada." << std::endl;
+               cout << "Seleccion de productos finalizada." << endl;
                 return listaComprados;
             }
         }
 
-        // Buscar el producto por código
+      
         Producto* producto = buscarProductoCodigo(codigo);
 
-        // Verificar que el producto exista
+       
         if (producto == nullptr) {
-            std::cout << "Producto con código " << codigo << " no encontrado en el almacén." << std::endl;
+            cout << "Producto con codigo " << codigo << " no encontrado en el almacen." << endl;
             continue;
         }
 
-        // Verificar la existencia y el límite
+        
         int limite = producto->getLimite();
         int existencia = producto->getExistencia();
         int disponible = (existencia - limite);
 
-        // Si la existencia es menor o igual al límite, no se puede seleccionar
+        
         if (existencia <= limite) {
-            std::cout << "Producto Agotado, vuelva después." << std::endl;
+            std::cout << "Producto Agotado, vuelva despues." << std::endl;
             continue;
         }
 
-        std::cout << "Ingrese la cantidad de productos que desea comprar para el código " << codigo << ":" << std::endl;
-        std::cin >> cantidad;
+      cout << "Ingrese la cantidad de productos que desea comprar para el codigo " << codigo << ":" << endl;
+       cin >> cantidad;
 
         // Si la cantidad solicitada excede la existencia disponible
         if (cantidad > existencia) {
-            std::cout << "La cantidad solicitada (" << cantidad
+            cout << "La cantidad solicitada (" << cantidad
                 << ") excede la existencia disponible (" << existencia << "). Cantidad de productos disponibles:" << disponible
-                << std::endl;
+                << endl;
             continue;
         }
 
         // Si la cantidad solicitada es mayor que la diferencia entre la existencia y el límite
         if ((existencia - cantidad) < limite) {
-            std::cout << "La cantidad solicitada (" << cantidad
-                << ") hará que la existencia caiga por debajo del límite permitido. "
-                << "Cantidad de productos disponibles:" << disponible << std::endl;
+            cout << "La cantidad solicitada (" << cantidad
+                << ") hará que la existencia caiga por debajo del limite permitido. "
+                << "Cantidad de productos disponibles:" << disponible << endl;
             continue;
         }
 
         // Reducir la existencia del producto en el almacén por la cantidad solicitada
         producto->setExistencia(existencia - cantidad);
 
-        // Agregar el producto a la lista de productos comprados
+        // Agregar el producto 
         listaComprados->insertarFinal(producto);
         cout << "Aprete cualquier boton para continuar" << endl;
     }
@@ -365,40 +364,40 @@ Lista<Producto>* Almacen::seleccionarProductosPorCodigo() {
 
 string Almacen::toString()
 {
-    std::stringstream s;
+stringstream s;
 
     if (listaProductos == nullptr) { 
-        s << "El almacén no esta inicializado." << std::endl;
+        s << "El almacén no esta inicializado." << endl;
         return s.str(); 
     }
 
-    if (ListaProductoVacia()) { // Verificar si la lista está vacía
-        s << "El almacen está vacío." << std::endl;
-        return s.str(); // Devolver mensaje de error
+    if (ListaProductoVacia()) {
+        s << "El almacen está vacío." << endl;
+        return s.str(); 
     }
 
-    Nodo<Producto>* actual = listaProductos->getPrimero(); // Obtener el primer nodo
+    Nodo<Producto>* actual = listaProductos->getPrimero();
 
-    // Recorrer todos los productos en la lista
+    
    
     s << "Lista de productos en el almacen:" << std::endl;
 
-    while (actual != nullptr) { // Mientras haya nodos
-        Producto* producto = actual->getInfo(); // Obtener la información del producto
+    while (actual != nullptr) { 
+        Producto* producto = actual->getInfo(); 
 
-        if (producto != nullptr) { // Verificar que el producto no sea nulo
+        if (producto != nullptr) { 
             s << "----------------------------------------------------------" << endl;
-            s << producto->toString() << std::endl; // Agregar la representación del producto
+            s << producto->toString() << std::endl;
             s << "----------------------------------------------------------" << endl; 
         }
         else {
-            s << "Producto nulo encontrado en la lista." << std::endl; // Manejar caso de producto nulo
+            s << "Producto nulo encontrado en la lista." << std::endl; 
         }
 
-        actual = actual->getSiguiente(); // Avanzar al siguiente nodo
+        actual = actual->getSiguiente(); 
     }
 
-    return s.str(); // Devolver la cadena generada
+    return s.str(); 
 }
 
 Lista<Producto>* Almacen::reporteCategorias(int categoria)

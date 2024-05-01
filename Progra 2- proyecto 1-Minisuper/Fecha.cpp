@@ -47,12 +47,12 @@ string Fecha::toStringFecha() {
 int Fecha::obtenerDiaActual()
 {
     time_t tiempoActual;
-    time(&tiempoActual); // Obtener el tiempo actual
+    time(&tiempoActual); 
 
-    struct tm fechaBuffer; // Crear un buffer para almacenar la fecha
-    localtime_s(&fechaBuffer, &tiempoActual); // Usar la versión segura de localtime
+    struct tm fechaBuffer; 
+    localtime_s(&fechaBuffer, &tiempoActual); 
 
-    return fechaBuffer.tm_mday; // Devuelve el día
+    return fechaBuffer.tm_mday;
 }
 
 int Fecha::obtenerMesActual()
@@ -60,10 +60,10 @@ int Fecha::obtenerMesActual()
     time_t tiempoActual;
     time(&tiempoActual);
 
-    struct tm fechaBuffer; // Crear un buffer
+    struct tm fechaBuffer; 
     localtime_s(&fechaBuffer, &tiempoActual);
 
-    return fechaBuffer.tm_mon + 1; // Devuelve el mes
+    return fechaBuffer.tm_mon + 1; 
 }
 
 int Fecha::obtenerAnnioActual()
@@ -71,7 +71,7 @@ int Fecha::obtenerAnnioActual()
     time_t tiempoActual;
     time(&tiempoActual);
 
-    struct tm fechaBuffer; // Crear un buffer
+    struct tm fechaBuffer; 
     localtime_s(&fechaBuffer, &tiempoActual);
 
     return fechaBuffer.tm_year + 1900; // Devuelve el año
@@ -80,19 +80,3 @@ int Fecha::obtenerAnnioActual()
 
 
 
-
-//void Fecha::obtenerFechaActual()
-//{
-//    // Obtener el tiempo actual en segundos desde epoch
-//    time_t tiempoActual;
-//    time(&tiempoActual);
-//
-//    // Obtener la fecha y hora local de manera segura
-//    struct tm fechaBuffer;
-//    localtime_s(&fechaBuffer, &tiempoActual);
-//
-//    // Actualizar los valores de d�a, mes y a�o
-//    dia = fechaBuffer.tm_mday;
-//    mes = fechaBuffer.tm_mon + 1; // tm_mon es 0-indexado
-//    annio = fechaBuffer.tm_year + 1900;
-//}

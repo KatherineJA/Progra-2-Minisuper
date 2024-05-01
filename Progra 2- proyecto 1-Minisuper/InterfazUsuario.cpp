@@ -12,11 +12,10 @@ int InterfazUsuario::opcion() {
 
     int opc;
     cout << "Por favor, seleccione una opcion:\n";
-    //Poner aqui un manejo de excepciones
     cin >> opc;
     if (cin.fail()) {
-        cin.clear(); // Limpiar el estado de error
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Descartar la entrada incorrecta
+        cin.clear(); 
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
         throw ExcepcionCaracterInvalido();
     }
 
@@ -185,7 +184,7 @@ string InterfazUsuario::capturarCodigo()
 {
     string codigo;
 
-    while (true) { // Bucle para seguir pidiendo un código válido
+    while (true) { 
         cout << "Ingrese el codigo del producto: ";
         cin >> codigo;
 
@@ -193,7 +192,7 @@ string InterfazUsuario::capturarCodigo()
             cout << "El código '0' no es válido. Intente de nuevo." << endl;
         }
         else {
-            break; // Código válido, salir del bucle
+            break; 
         }
     }
 
@@ -338,7 +337,7 @@ int InterfazUsuario::capturarMes()
 bool InterfazUsuario::capturarEnvasado()
 {
     bool envasado; 
-    cout << "¿Está envasado? (0 para No, 1 para Si): ";
+    cout << " Esta envasado? (0 para No, 1 para Si): ";
     cin >> envasado;
     return envasado; 
 }
@@ -346,7 +345,7 @@ bool InterfazUsuario::capturarEnvasado()
 bool InterfazUsuario::capturarNacionalidad()
 {
     bool nacional;
-    cout << "¿Es nacional? (0 para No, 1 para Si): ";
+    cout << " Es nacional? (0 para No, 1 para Si): ";
     cin >> nacional;
     return nacional;
 }
@@ -354,7 +353,7 @@ bool InterfazUsuario::capturarNacionalidad()
 bool InterfazUsuario::capturarTripa()
 {
     bool tripa;
-    cout << "¿Es de tripa? (0 para No, 1 para Si): ";
+    cout << " Es de tripa? (0 para No, 1 para Si): ";
     cin >> tripa;
     return tripa;
 }

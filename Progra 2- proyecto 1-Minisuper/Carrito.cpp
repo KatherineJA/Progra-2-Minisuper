@@ -31,7 +31,7 @@ Cliente* Carrito::getCliente()
 void Carrito::setLista(Lista<Producto>* nuevaLista)
 {
 	if (lista != nuevaLista) {
-		delete lista; // Liberar la lista anterior
+		delete lista;
 		lista = nuevaLista; // Asignar la nueva lista
 	}
 }
@@ -43,19 +43,19 @@ Lista<Producto>* Carrito::getLista()
 
 int Carrito::cantidadProductos()
 {
-	if (!lista) { // Si la lista es nula, no hay productos
+	if (!lista) {
 		return 0;
 	}
 
 	int contador = 0;
-	Nodo<Producto>* actual = lista->getPrimero(); // Obtener el primer nodo
+	Nodo<Producto>* actual = lista->getPrimero();
 
-	while (actual) { // Mientras haya nodos
-		contador++; // Incrementar el contador por cada producto
-		actual = actual->getSiguiente(); // Avanzar al siguiente nodo
+	while (actual) {
+		contador++;
+		actual = actual->getSiguiente();
 	}
 
-	return contador; // Devolver el número total de productos
+	return contador;
 }
 
 void Carrito::agregarProducto(Producto* producto)
@@ -71,8 +71,8 @@ double Carrito::sumaPrecios()
 		return 0.0;
 	}
 
-	double total = 0.0; // Variable para la suma total de precios
-	Nodo<Producto>* actual = lista->getPrimero(); // Obtener el primer nodo
+	double total = 0.0; 
+	Nodo<Producto>* actual = lista->getPrimero(); 
 
 	
 	while (actual != nullptr) { 

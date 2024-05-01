@@ -36,7 +36,7 @@ Nodo<T>::Nodo(T* info, Nodo<T>* siguiente)
 
 template <class T>
 Nodo<T>::~Nodo() {
-    delete info; // Destruccion  del objeto info
+    delete info; 
 }
 
 template <class T>
@@ -65,7 +65,7 @@ inline Nodo<T>* Nodo<T>::getSiguiente()
 template <class T>
 string Nodo<T>::toString() const {
     if (info != nullptr) {
-        return info->toString(); // Suponiendo que T tiene un metodo toString
+        return info->toString(); 
     }
     else {
         return "Nodo vacío";
