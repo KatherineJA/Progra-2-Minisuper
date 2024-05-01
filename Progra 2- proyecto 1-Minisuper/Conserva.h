@@ -1,6 +1,7 @@
 #ifndef CONSERVA_H
 #define CONSERVA_H
 #include "Producto.h"
+#include <iomanip>
 class Conserva : public Producto
 {
 private:
@@ -10,7 +11,7 @@ public:
 	Conserva(string codigo, string nombreComercial, string descripcion, int categoria, double precioCosto, int existencia, int limite, bool envasado);
 
 
-	// Heredado v�a Producto
+	// Heredado via Producto
 	string getCodigo() override;
 
 	string getNombreComercial() override;
@@ -45,7 +46,7 @@ public:
 	string toStringFactu() override;
 	bool esEnvasado();
 
-	// Heredado via Producto
+	
 }; 
 
 #endif CONSERVA_H

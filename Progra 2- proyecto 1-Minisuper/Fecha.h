@@ -27,7 +27,7 @@ public:
 	int getAnnio(); 
 	
 	string toStringFecha(); 
-	/*void obtenerFechaActual(); */
+	
 	int obtenerDiaActual();
 	int obtenerMesActual();
 	int obtenerAnnioActual();

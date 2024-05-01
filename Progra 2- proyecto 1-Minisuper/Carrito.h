@@ -24,7 +24,7 @@ public:
 	Lista<Producto>* getLista();
 	
 	int cantidadProductos();
-	//
+	
 	void agregarProducto(Producto*);
 
 	double sumaPrecios();
@@ -33,7 +33,7 @@ public:
 
 	string toStringCarrito();
 
-	/*bool agregarProductoPorCodigo(Almacen*, string* ,int* );*/
+	
 
 
 	

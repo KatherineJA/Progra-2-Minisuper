@@ -97,8 +97,9 @@ void Conserva::setLimite(int limite)
 
 double Conserva::calculaPorcGanancia()
 {
-    double doble =  980 ; 
-    return doble; 
+    double calculo = 0.0;
+    calculo = (precioCosto * Categoria::porceGanancia(categoria));
+    return calculo;
 }
 
 string Conserva::toString()
@@ -107,7 +108,9 @@ string Conserva::toString()
     result += "Nombre Comercial: " + getNombreComercial() + "\n";
     result += "Descripcion: " + getDescripcion() + "\n";
     result += "Categoria: " + to_string(getCategoria()); +"\n";
-    result += "\nPrecio Costo: " + to_string(getPrecioCosto()) + "\n";
+    stringstream s;
+    s << fixed << std::setprecision(2) << getPrecioCosto();
+    result += "\nPrecio Costo: " + s.str() + "\n";
     result += "Existencia: " + to_string(getExistencia()) + "\n";
     result += "Limite: " + to_string(getLimite()) + "\n";
     result += "Envasado?: ";
@@ -117,9 +120,9 @@ string Conserva::toString()
     else {
         result+="No\n";
     }
-    result += "Ganancai para la tienda: ";
-    result += to_string(calculaPorcGanancia());
-    result += "\n";
+    stringstream ss;
+    ss << fixed << setprecision(2) << calculaPorcGanancia();
+    result += "Ganancia para la tienda: " + ss.str() + " Por cada producto vendido\n";
     return result;
 }
 

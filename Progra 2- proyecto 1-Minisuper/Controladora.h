@@ -9,7 +9,7 @@ private:
 	InterfazUsuario* vista;
 	Almacen* modelo= new Almacen();
 	Factura* factura = new Factura(new Lista<Venta>());
-	//Faltan cosas
+	
 public:
 	void ejecutar();
 	void ingresarProducto();
@@ -31,7 +31,7 @@ public:
 	 
 
 	void crearFacturaCompra(); 
-	/*Cliente* crearCliente();*/
+
 
     
 

@@ -180,5 +180,6 @@ bool Carne::esNacional()
 double Carne::calculaPorcGanancia()
 {
     double calculo = 0.0;
+    calculo = (precioCosto * Categoria::porceGanancia(categoria));
     return calculo;
 }

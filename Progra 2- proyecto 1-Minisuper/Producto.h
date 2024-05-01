@@ -2,6 +2,7 @@
 #define PRODUCTO_H
 #include "Fecha.h"
 #include "Categoria.h"
+#include <iomanip>
 //Component
 class Producto{
 protected: 
@@ -32,7 +33,7 @@ public:
 
 	virtual double calculaPorcGanancia() = 0; 
 
-	///////
+	
 	virtual string toString() = 0;
 	virtual string toStringFactu() = 0;
 

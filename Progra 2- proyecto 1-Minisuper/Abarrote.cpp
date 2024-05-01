@@ -30,7 +30,7 @@ string Abarrote::toString()
 {
     string result = ptrProducto->toString(); 
 
-   result += ptrProducto->calculaPorcGanancia();
+   
     result += "Nacional: "; 
     if (esNacional()) { 
         result += "Si\n"; 
@@ -38,11 +38,11 @@ string Abarrote::toString()
     else {
         result += "No\n"; 
     }
-    result += "Peso: " + to_string(getPeso()) + "\n"; 
+    result += "Peso: " + to_string(getPeso()) + " kg\n";
     result += "Empresa: " + (empresaNombre)+"\n";
-    result += "Ganancai para la tienda: "; 
-    result += to_string(calculaPorcGanancia());
-    result += "\n";
+    stringstream ss;
+    ss << fixed << setprecision(2) << calculaPorcGanancia();
+    result += "Ganancia para la tienda: " + ss.str() + " Por cada producto vendido\n";
     return result; 
 }
 
@@ -57,7 +57,7 @@ string Abarrote::toStringFactu()
     else {
         result += "No\n";
     }
-    result += "Peso: " + to_string(getPeso()) + "\n";
+    result += "Peso: " + to_string(getPeso()) + " kg\n" ;
     result += "Empresa: " + (empresaNombre)+"\n";
 
     return result;
@@ -162,6 +162,7 @@ bool Abarrote::esNacional()
 
 double Abarrote::calculaPorcGanancia()
 {
-    double calculo = 0.9; 
+    double calculo = 0.0; 
+    calculo =( precioCosto * Categoria::porceGanancia(categoria)); 
     return calculo; 
 }

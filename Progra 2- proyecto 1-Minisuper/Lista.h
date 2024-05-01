@@ -27,20 +27,20 @@ public:
     // Operaciones con la lista
     void insertarFinal(T* objeto);
     bool eliminarFinal();
-    bool eliminarPorID(const std::string& id);
-    T* obtenerObjetoPorID(const std::string& id);
-    bool existeObjetoPorID(const std::string& id);
+    bool eliminarPorID(const string& id);
+    T* obtenerObjetoPorID(const string& id);
+    bool existeObjetoPorID(const string& id);
     bool listaVacia();
 
-    // Representación como cadena
-    std::string toString();
+    
+    string toString();
 };
 
-// Constructor por defecto
+
 template <class T>
 Lista<T>::Lista() : primero(nullptr), actual(nullptr), ultimo(nullptr) {}
 
-// Destructor
+
 template <class T>
 Lista<T>::~Lista() {
     while (primero != nullptr) {

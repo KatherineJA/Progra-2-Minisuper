@@ -1,6 +1,7 @@
 #ifndef ABARROTE_H
 #define ABARROTE_H
 #include "ProdPerecedero.h"
+
 //ConcreteDecoratorA 
 class Abarrote: public ProdPerecedero
 {

@@ -3,6 +3,7 @@
 #include "Producto.h"
 #include "Categoria.h"
 #include "Perecedero.h"
+#include <iomanip>
 //Decorador
 class ProdPerecedero : public Producto
 {

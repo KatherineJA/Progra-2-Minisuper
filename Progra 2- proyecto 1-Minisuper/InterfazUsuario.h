@@ -12,9 +12,9 @@ using namespace std;
 class InterfazUsuario
 {
 public:
-	static void cabeza(); //		limpia la pantalla
-	static int opcion(); //	acepta opciones/entradas
-	static void pause();//	pausa el metodo
+	static void cabeza(); 
+	static int opcion(); //	acepta opciones/entradas,excepcion 
+	static void pause();
 
 	static int menuPrincipal();
 	static int menuMantenimiento();
