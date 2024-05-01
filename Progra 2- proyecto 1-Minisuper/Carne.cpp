@@ -45,6 +45,7 @@ string Carne::toString()
 {
     string result = ptrProducto->toString();
     result += perecedero->toStringFechaCaducidad();
+
     result += "Nacional: ";
     if (esNacional()) {
         result += "Si\n";
@@ -55,6 +56,7 @@ string Carne::toString()
     result += "Peso: " + to_string(getPeso()) + "\n";
 
     result += "Animal: " + (animal) + "\n" + "Parte del animal: " + (parteDelAnimal) + "\n";
+   
     return result;
 
 }

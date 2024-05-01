@@ -42,6 +42,9 @@ string Embutido::toString()
 	else { 
 		result += "No\n"; 
 	}
+	result += "Ganancai para la tienda: ";
+	result += to_string(calculaPorcGanancia());
+	result += "\n";
 	return result; 
 }
 

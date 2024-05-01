@@ -29,7 +29,8 @@ void Abarrote::setEmpresaNombre(string empresa) {
 string Abarrote::toString()
 {
     string result = ptrProducto->toString(); 
-   result += perecedero->toStringFechaCaducidad();
+
+   result += ptrProducto->calculaPorcGanancia();
     result += "Nacional: "; 
     if (esNacional()) { 
         result += "Si\n"; 
@@ -39,7 +40,9 @@ string Abarrote::toString()
     }
     result += "Peso: " + to_string(getPeso()) + "\n"; 
     result += "Empresa: " + (empresaNombre)+"\n";
-
+    result += "Ganancai para la tienda: "; 
+    result += to_string(calculaPorcGanancia());
+    result += "\n";
     return result; 
 }
 
