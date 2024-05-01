@@ -183,11 +183,21 @@ int InterfazUsuario::menuActualizacionProducto()
 
 string InterfazUsuario::capturarCodigo()
 {
-    string Codigo;
-    cout << "Ingrese el codigo del producto: ";
-   
-    cin>> Codigo;
-    return Codigo;
+    string codigo;
+
+    while (true) { // Bucle para seguir pidiendo un código válido
+        cout << "Ingrese el codigo del producto: ";
+        cin >> codigo;
+
+        if (codigo == "0") {
+            cout << "El código '0' no es válido. Intente de nuevo." << endl;
+        }
+        else {
+            break; // Código válido, salir del bucle
+        }
+    }
+
+    return codigo;
 }
 
 string InterfazUsuario::capturarNombre()
